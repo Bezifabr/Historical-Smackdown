@@ -25,6 +25,7 @@ void Game::RunLoop()
 
 		statesMachine.Update();
 		window.clear(sf::Color::White);
+		statesMachine.GetCurrentState()->Render(window);
 		window.display();
 
 	}

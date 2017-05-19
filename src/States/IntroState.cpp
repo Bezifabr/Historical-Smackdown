@@ -21,3 +21,8 @@ void IntroState::Unload()
 {
 	cout << "Intro unloaded" << endl;
 }
+
+void IntroState::Render(sf::RenderTarget & renderTarget)
+{
+	// nothing
+}

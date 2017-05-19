@@ -4,10 +4,14 @@
 #include "State.h"
 
 class MenuState : public State {
+	sf::Texture texture;
+	sf::Sprite sprite;
 public:
 	virtual void Load();
 	virtual void Update(StatesMachine* statesMachine);
 	virtual void Unload();
+
+	virtual void Render(sf::RenderTarget& renderTarget);
 };
 
 #endif // !MENU_STATE_H
