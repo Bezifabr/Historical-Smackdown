@@ -1,30 +1,13 @@
-#include "SFML/Graphics.hpp"
-#include <iostream>
-#include <string>
-#include <cmath>
 #include "Game.h"
 
 int main() {
 
 	Game game;
 	game.SetTitle("Historical Smackdown");
+	game.CreateWindow();
 
-	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), game.GetTitle());
-	window.setFramerateLimit(120);
+	game.RunLoop();
 
-	while(window.isOpen())
-	{
-		sf::Event event;
-		while(window.pollEvent(event))
-		{
-			if(event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		window.clear(sf::Color::White);
-		window.display();
-
-	}
     
 	return 0;
 }
