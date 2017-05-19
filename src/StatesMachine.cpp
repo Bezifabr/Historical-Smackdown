@@ -25,6 +25,11 @@ void StatesMachine::Change(State * state)
 		currentState->Load();
 }
 
+State * StatesMachine::GetCurrentState()
+{
+	return currentState;
+}
+
 void StatesMachine::Update()
 {
 	if (currentState)

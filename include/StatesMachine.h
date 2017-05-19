@@ -9,6 +9,7 @@ public:
 	~StatesMachine();
 
 	void Change(State* state);
+	State* GetCurrentState();
 	void Update();
 };
 
