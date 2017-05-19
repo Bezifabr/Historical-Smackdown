@@ -3,8 +3,7 @@
 int main() {
 
 	Game game;
-	game.SetTitle("Historical Smackdown");
-	game.CreateWindow();
+	game.CreateWindow("Historical Smackdown");
 
 	game.RunLoop();
 

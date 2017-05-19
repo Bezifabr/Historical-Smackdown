@@ -8,8 +8,7 @@ class Game {
 	std::string title;
 	sf::RenderWindow window;
 public:
-	void SetTitle(const std::string& title);
-	void CreateWindow();
+	void CreateWindow(const std::string& title);
 
 	void RunLoop();
 

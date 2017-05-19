@@ -1,11 +1,6 @@
 #include "..\include\Game.h"
 
-void Game::SetTitle(const std::string & title)
-{
-	this->title = title;
-}
-
-void Game::CreateWindow()
+void Game::CreateWindow(const std::string & title)
 {
 	window.create(sf::VideoMode::getDesktopMode(), title);
 	window.setFramerateLimit(120);
