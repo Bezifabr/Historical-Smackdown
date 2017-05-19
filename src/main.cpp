@@ -10,6 +10,7 @@ int main() {
 	game.SetTitle("Historical Smackdown");
 
 	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), game.GetTitle());
+	window.setFramerateLimit(120);
 
 	while(window.isOpen())
 	{
