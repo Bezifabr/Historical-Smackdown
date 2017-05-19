@@ -1,4 +1,4 @@
-#include "..\include\Game.h"
+#include "Game.h"
 
 void Game::CreateWindow(const std::string & title)
 {
