@@ -6,6 +6,11 @@ void Game::CreateWindow(const std::string & title)
 	window.setFramerateLimit(120);
 }
 
+void Game::Initialize(State * initState)
+{
+	statesMachine.Change(initState);
+}
+
 void Game::RunLoop()
 {
 
@@ -18,6 +23,7 @@ void Game::RunLoop()
 				window.close();
 		}
 
+		statesMachine.Update();
 		window.clear(sf::Color::White);
 		window.display();
 
