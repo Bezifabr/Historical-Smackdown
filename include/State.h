@@ -7,7 +7,7 @@ class StatesMachine;
 class State {
 public:
 	virtual void Load(StatesMachine* statesMachine);
-	virtual void Update() = 0;
+	virtual void Update(sf::Time deltaTime);
 	virtual void Unload();
 
 	virtual void HandleEvent(sf::Event event) = 0;
@@ -15,11 +15,13 @@ public:
 
 	bool IsGameFinished();
 protected:
+	virtual void OnUpdate() = 0;
 	virtual void OnLoad() = 0;
 	virtual void OnUnload() = 0;
 
 	bool isGameFinished = false; 
 	StatesMachine* statesMachine;
+	sf::Time timeBetweenFrames;
 };
 
 #endif // !STATE_H

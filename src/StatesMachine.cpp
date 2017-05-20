@@ -30,8 +30,8 @@ State * StatesMachine::GetCurrentState()
 	return currentState;
 }
 
-void StatesMachine::Update()
+void StatesMachine::Update(sf::Time deltaTime)
 {
 	if (currentState)
-		currentState->Update();
+		currentState->Update(deltaTime);
 }

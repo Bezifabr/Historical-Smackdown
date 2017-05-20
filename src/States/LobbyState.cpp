@@ -16,7 +16,7 @@ void LobbyState::OnUnload()
 	cout << "Lobby unloaded" << endl;
 }
 
-void LobbyState::Update()
+void LobbyState::OnUpdate()
 {
 	statesMachine->Change(new GameState);
 }

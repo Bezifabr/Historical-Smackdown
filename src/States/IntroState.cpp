@@ -16,7 +16,7 @@ void IntroState::OnUnload()
 	cout << "Intro unloaded" << endl;
 }
 
-void IntroState::Update()
+void IntroState::OnUpdate()
 {
 	cout << "Intro updated" << endl;
 	statesMachine->Change(new MenuState);

@@ -25,7 +25,7 @@ void MenuState::OnUnload()
 	cout << "Menu unloaded" << endl;
 }
 
-void MenuState::Update()
+void MenuState::OnUpdate()
 {
 	std::string option = menu.GetCurrentOption();
 

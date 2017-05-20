@@ -36,7 +36,7 @@ void GameState::OnUnload()
 	cout << "Game unloaded" << endl;
 }
 
-void GameState::Update()
+void GameState::OnUpdate()
 {
 	player1.PerformMovement();
 }

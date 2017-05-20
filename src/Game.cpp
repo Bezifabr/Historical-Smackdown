@@ -13,9 +13,11 @@ void Game::Initialize(State * initState)
 
 void Game::RunLoop()
 {
-
+	sf::Clock clock;
 	while (window.isOpen())
 	{
+		sf::Time deltaTime = clock.restart();
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -25,7 +27,7 @@ void Game::RunLoop()
 			statesMachine.GetCurrentState()->HandleEvent(event);
 		}
 
-		statesMachine.Update();
+		statesMachine.Update(deltaTime);
 		window.clear(sf::Color::White);
 		statesMachine.GetCurrentState()->Render(window);
 		window.display();

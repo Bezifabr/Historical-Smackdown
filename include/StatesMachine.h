@@ -10,7 +10,7 @@ public:
 
 	void Change(State* state);
 	State* GetCurrentState();
-	void Update();
+	void Update(sf::Time deltaTime);
 };
 
 #endif // !STATE_MACHINE_H

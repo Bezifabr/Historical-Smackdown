@@ -6,6 +6,12 @@ void State::Load(StatesMachine * statesMachine)
 	OnLoad();
 }
 
+void State::Update(sf::Time deltaTime)
+{
+	this->timeBetweenFrames = deltaTime;
+	OnUpdate();
+}
+
 void State::Unload()
 {
 	statesMachine = nullptr;
