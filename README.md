@@ -18,3 +18,11 @@ Historical Smackdown is a simple fighter game where player choose character and 
 ## Used libraries
 
 * [SFML](http://www.sfml-dev.org/) : Sound and graphics
+
+## How to build
+
+* Download [CMake](https://cmake.org/) 
+* Build project for your IDE in /build directory
+* Compile project 
+* Move .dll files from ext/sfml to directory with .exe file
+* Move resources folder to directory with .exe file
