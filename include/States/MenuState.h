@@ -10,6 +10,7 @@ class MenuState : public State {
 	sf::Sprite sprite;
 
 	int option;
+	bool isOptionSelected = false;
 public:
 	virtual void Load();
 	virtual void Unload();

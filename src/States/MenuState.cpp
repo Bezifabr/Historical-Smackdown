@@ -1,4 +1,6 @@
 #include "States\MenuState.h"
+#include "States\LobbyState.h"
+#include "StatesMachine.h"
 #include <iostream>
 
 using std::cout;
@@ -22,16 +24,22 @@ void MenuState::Update(StatesMachine * statesMachine)
 	case 0:
 	{
 		sprite.setTexture(playTexture);
+		if (isOptionSelected)
+			statesMachine->Change(new LobbyState);
 		break;
 	}
 	case 1:
 	{
 		sprite.setTexture(statsTexture);
+		if (isOptionSelected)
+			isOptionSelected = false;
 		break;
 	}
 	case 2:
 	{
 		sprite.setTexture(exitTexture);
+		if (isOptionSelected)
+			isGameFinished = true;
 		break;
 	}
 	default:
@@ -64,7 +72,10 @@ void MenuState::HandleEvent(sf::Event event)
 				option++;
 			else
 				option = 0;
+
 		}
+		else if (event.key.code == sf::Keyboard::Return)
+			isOptionSelected = true;
 	}
 }
 
