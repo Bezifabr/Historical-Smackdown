@@ -8,6 +8,8 @@ class GameState : public State {
 	sf::Texture bgrTexture;
 	sf::Sprite background;
 
+	BasicMovement basicMovement;
+
 	Character player1;
 	Character player2;
 public:

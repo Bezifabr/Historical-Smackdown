@@ -1,6 +1,17 @@
 #include "Character.h"
 
 
+void Character::SetMovementController(MovementController * movementController)
+{
+	this->movementController = movementController;
+}
+
+void Character::PerformMovement()
+{
+	if(movementController)
+		movementController->PerformMovement(this);
+}
+
 void Character::LoadTexture(const std::string & filename)
 {
 	texture.loadFromFile(filename);
@@ -30,4 +41,9 @@ void Character::SetPosition(sf::Vector2f position)
 void Character::SetPosition(float x, float y)
 {
 	SetPosition(sf::Vector2f(x, y));
+}
+
+sf::Vector2f Character::GetPosition()
+{
+	return sprite.getPosition();
 }

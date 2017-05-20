@@ -1,5 +1,6 @@
 #include "States\GameState.h"
 #include "StatesMachine.h"
+#include "MovementController.h"
 
 #include <iostream>
 
@@ -20,6 +21,13 @@ void GameState::OnLoad()
 	player1.SetPosition(50, 775);
 	player2.SetPosition(775, 775);
 
+	basicMovement.SetMovementSpeed(20);
+	basicMovement.SetMoveLeftKey(sf::Keyboard::A);
+	basicMovement.SetMoveRightKey(sf::Keyboard::D);
+	
+	player1.SetMovementController(&basicMovement);
+
+
 	cout << "Game loaded" << endl;
 }
 
@@ -30,12 +38,12 @@ void GameState::OnUnload()
 
 void GameState::Update()
 {
-	
+	player1.PerformMovement();
 }
 
 void GameState::HandleEvent(sf::Event event)
 {
-	if (event.type == sf::Event::KeyPressed)
+	if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
 		isGameFinished = true;
 }
 
@@ -44,6 +52,4 @@ void GameState::Render(sf::RenderTarget & renderTarget)
 	renderTarget.draw(background);
 	player1.Render(renderTarget);
 	player2.Render(renderTarget);
-	//renderTarget.draw(testPlayer1);
-	//renderTarget.draw(testPlayer2);
 }
