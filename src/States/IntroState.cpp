@@ -11,15 +11,15 @@ void IntroState::OnLoad()
 	cout << "Intro loaded" << endl;
 }
 
+void IntroState::OnUnload()
+{
+	cout << "Intro unloaded" << endl;
+}
+
 void IntroState::Update()
 {
 	cout << "Intro updated" << endl;
 	statesMachine->Change(new MenuState);
-}
-
-void IntroState::Unload()
-{
-	cout << "Intro unloaded" << endl;
 }
 
 void IntroState::HandleEvent(sf::Event event)

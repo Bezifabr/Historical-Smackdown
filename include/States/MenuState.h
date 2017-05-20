@@ -13,7 +13,7 @@ class MenuState : public State {
 	Menu menu;
 public:
 	virtual void OnLoad();
-	virtual void Unload();
+	virtual void OnUnload();
 
 	virtual void Update();
 	virtual void HandleEvent(sf::Event event);

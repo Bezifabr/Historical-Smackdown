@@ -19,6 +19,12 @@ void MenuState::OnLoad()
 
 }
 
+void MenuState::OnUnload()
+{
+	menu.ClearOptions();
+	cout << "Menu unloaded" << endl;
+}
+
 void MenuState::Update()
 {
 	std::string option = menu.GetCurrentOption();
@@ -29,12 +35,6 @@ void MenuState::Update()
 		sprite.setTexture(statsTexture);
 	if (option == "Exit")
 		sprite.setTexture(exitTexture);
-}
-
-void MenuState::Unload()
-{
-	menu.ClearOptions();
-	cout << "Menu unloaded" << endl;
 }
 
 void MenuState::HandleEvent(sf::Event event)

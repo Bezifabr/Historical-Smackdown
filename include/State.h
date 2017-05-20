@@ -8,7 +8,7 @@ class State {
 public:
 	virtual void Load(StatesMachine* statesMachine);
 	virtual void Update() = 0;
-	virtual void Unload() = 0;
+	virtual void Unload();
 
 	virtual void HandleEvent(sf::Event event) = 0;
 	virtual void Render(sf::RenderTarget& renderTarget) = 0;
@@ -16,6 +16,7 @@ public:
 	bool IsGameFinished();
 protected:
 	virtual void OnLoad() = 0;
+	virtual void OnUnload() = 0;
 
 	bool isGameFinished = false; 
 	StatesMachine* statesMachine;

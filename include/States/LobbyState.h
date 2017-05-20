@@ -6,7 +6,7 @@
 class LobbyState : public State {
 public:
 	virtual void OnLoad();
-	virtual void Unload();
+	virtual void OnUnload();
 
 	virtual void Update();
 	virtual void HandleEvent(sf::Event event);

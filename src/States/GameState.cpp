@@ -11,7 +11,7 @@ void GameState::OnLoad()
 	cout << "Game loaded" << endl;
 }
 
-void GameState::Unload()
+void GameState::OnUnload()
 {
 	cout << "Game unloaded" << endl;
 }

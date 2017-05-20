@@ -6,6 +6,12 @@ void State::Load(StatesMachine * statesMachine)
 	OnLoad();
 }
 
+void State::Unload()
+{
+	statesMachine = nullptr;
+	OnUnload();
+}
+
 bool State::IsGameFinished()
 {
 	return isGameFinished;

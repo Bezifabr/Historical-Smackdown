@@ -11,7 +11,7 @@ void LobbyState::OnLoad()
 	cout << "Lobby loaded" << endl;
 }
 
-void LobbyState::Unload()
+void LobbyState::OnUnload()
 {
 	cout << "Lobby unloaded" << endl;
 }
