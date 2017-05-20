@@ -7,7 +7,7 @@ class Character;
 
 class MovementController {
 public:
-	virtual void PerformMovement(Character* movingCharacter) = 0;
+	virtual void PerformMovement(Character* movingCharacter, sf::Time deltaTime) = 0;
 
 };
 
@@ -26,7 +26,7 @@ public:
 	void SetMoveLeftKey(sf::Keyboard::Key moveLeftKey);
 	void SetMoveRightKey(sf::Keyboard::Key moveRightKey);
 
-	virtual void PerformMovement(Character* movingCharacter);
+	virtual void PerformMovement(Character* movingCharacter, sf::Time deltaTime);
 };
 
 #endif // !MOVEMENT_CONTROLLER_H

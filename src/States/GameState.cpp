@@ -21,7 +21,7 @@ void GameState::OnLoad()
 	player1.SetPosition(50, 775);
 	player2.SetPosition(775, 775);
 
-	basicMovement.SetMovementSpeed(20);
+	basicMovement.SetMovementSpeed(30);
 	basicMovement.SetMoveLeftKey(sf::Keyboard::A);
 	basicMovement.SetMoveRightKey(sf::Keyboard::D);
 	
@@ -38,7 +38,7 @@ void GameState::OnUnload()
 
 void GameState::OnUpdate()
 {
-	player1.PerformMovement();
+	player1.PerformMovement(deltaTime);
 }
 
 void GameState::HandleEvent(sf::Event event)

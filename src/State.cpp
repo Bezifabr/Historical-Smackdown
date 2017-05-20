@@ -8,7 +8,7 @@ void State::Load(StatesMachine * statesMachine)
 
 void State::Update(sf::Time deltaTime)
 {
-	this->timeBetweenFrames = deltaTime;
+	this->deltaTime = deltaTime;
 	OnUpdate();
 }
 

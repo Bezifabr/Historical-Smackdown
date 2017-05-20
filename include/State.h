@@ -21,7 +21,7 @@ protected:
 
 	bool isGameFinished = false; 
 	StatesMachine* statesMachine;
-	sf::Time timeBetweenFrames;
+	sf::Time deltaTime;
 };
 
 #endif // !STATE_H

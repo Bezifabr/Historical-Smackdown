@@ -6,10 +6,10 @@ void Character::SetMovementController(MovementController * movementController)
 	this->movementController = movementController;
 }
 
-void Character::PerformMovement()
+void Character::PerformMovement(sf::Time deltaTime)
 {
 	if(movementController)
-		movementController->PerformMovement(this);
+		movementController->PerformMovement(this, deltaTime);
 }
 
 void Character::LoadTexture(const std::string & filename)

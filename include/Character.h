@@ -15,7 +15,7 @@ public:
 
 	void SetMovementController(MovementController* movementController);
 
-	void PerformMovement();
+	void PerformMovement(sf::Time deltaTime);
 	
 	void LoadTexture(const std::string& filename);
 	void Render(sf::RenderTarget& renderTarget);
