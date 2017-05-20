@@ -2,14 +2,14 @@
 #define GAME_STATE_H
 
 #include "State.h"
+#include "Character.h"
 
 class GameState : public State {
 	sf::Texture bgrTexture;
-	sf::Texture player1Texture;
-	sf::Texture player2Texture;
 	sf::Sprite background;
-	sf::Sprite testPlayer1;
-	sf::Sprite testPlayer2;
+
+	Character player1;
+	Character player2;
 public:
 
 	virtual void Update();

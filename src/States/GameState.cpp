@@ -11,15 +11,14 @@ void GameState::OnLoad()
 	bgrTexture.loadFromFile("resources/textures/arenas/abbacy.png");
 	background.setTexture(bgrTexture);
 
-	player1Texture.loadFromFile("resources/textures/characters/hilter.png");
-	player2Texture.loadFromFile("resources/textures/characters/spalin.png");
+	player1.SetName("Mr. Hilter");
+	player2.SetName("Cde. Spalin");
 
-	testPlayer1.setTexture(player1Texture);
-	testPlayer2.setTexture(player2Texture);
+	player1.LoadTexture("resources/textures/characters/hilter.png");
+	player2.LoadTexture("resources/textures/characters/spalin.png");
 
-	testPlayer1.setPosition(50, 775);
-	testPlayer2.setPosition(1000, 775);
-	testPlayer2.setScale(-1, 1);
+	player1.SetPosition(50, 775);
+	player2.SetPosition(775, 775);
 
 	cout << "Game loaded" << endl;
 }
@@ -43,6 +42,8 @@ void GameState::HandleEvent(sf::Event event)
 void GameState::Render(sf::RenderTarget & renderTarget)
 {
 	renderTarget.draw(background);
-	renderTarget.draw(testPlayer1);
-	renderTarget.draw(testPlayer2);
+	player1.Render(renderTarget);
+	player2.Render(renderTarget);
+	//renderTarget.draw(testPlayer1);
+	//renderTarget.draw(testPlayer2);
 }
