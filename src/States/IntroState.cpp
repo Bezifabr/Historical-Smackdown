@@ -6,12 +6,12 @@
 using std::cout;
 using std::endl;
 
-void IntroState::Load()
+void IntroState::OnLoad()
 {
 	cout << "Intro loaded" << endl;
 }
 
-void IntroState::Update(StatesMachine * statesMachine)
+void IntroState::Update()
 {
 	cout << "Intro updated" << endl;
 	statesMachine->Change(new MenuState);

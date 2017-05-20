@@ -12,10 +12,10 @@ class MenuState : public State {
 	int option;
 	bool isOptionSelected = false;
 public:
-	virtual void Load();
+	virtual void OnLoad();
 	virtual void Unload();
 
-	virtual void Update(StatesMachine* statesMachine);
+	virtual void Update();
 	virtual void HandleEvent(sf::Event event);
 	virtual void Render(sf::RenderTarget& renderTarget);
 };

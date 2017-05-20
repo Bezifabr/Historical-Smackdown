@@ -22,7 +22,7 @@ void StatesMachine::Change(State * state)
 	currentState = state;
 
 	if (currentState)
-		currentState->Load();
+		currentState->Load(this);
 }
 
 State * StatesMachine::GetCurrentState()
@@ -33,5 +33,5 @@ State * StatesMachine::GetCurrentState()
 void StatesMachine::Update()
 {
 	if (currentState)
-		currentState->Update(this);
+		currentState->Update();
 }

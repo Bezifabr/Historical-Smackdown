@@ -6,7 +6,7 @@
 using std::cout;
 using std::endl;
 
-void MenuState::Load()
+void MenuState::OnLoad()
 {
 	cout << "Menu loaded" << endl;
 
@@ -17,7 +17,7 @@ void MenuState::Load()
 	option = 0;
 }
 
-void MenuState::Update(StatesMachine * statesMachine)
+void MenuState::Update()
 {
 	switch (option)
 	{

@@ -6,7 +6,7 @@
 using std::cout;
 using std::endl;
 
-void GameState::Load()
+void GameState::OnLoad()
 {
 	cout << "Game loaded" << endl;
 }
@@ -16,7 +16,7 @@ void GameState::Unload()
 	cout << "Game unloaded" << endl;
 }
 
-void GameState::Update(StatesMachine * statesMachine)
+void GameState::Update()
 {
 	
 }

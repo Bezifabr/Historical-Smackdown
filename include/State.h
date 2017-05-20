@@ -6,8 +6,8 @@
 class StatesMachine;
 class State {
 public:
-	virtual void Load() = 0;
-	virtual void Update(StatesMachine* stateMachine) = 0;
+	virtual void Load(StatesMachine* statesMachine);
+	virtual void Update() = 0;
 	virtual void Unload() = 0;
 
 	virtual void HandleEvent(sf::Event event) = 0;
@@ -15,7 +15,10 @@ public:
 
 	bool IsGameFinished();
 protected:
-	bool isGameFinished = false;
+	virtual void OnLoad() = 0;
+
+	bool isGameFinished = false; 
+	StatesMachine* statesMachine;
 };
 
 #endif // !STATE_H

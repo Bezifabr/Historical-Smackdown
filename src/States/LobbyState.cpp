@@ -6,7 +6,7 @@
 using std::cout;
 using std::endl;
 
-void LobbyState::Load()
+void LobbyState::OnLoad()
 {
 	cout << "Lobby loaded" << endl;
 }
@@ -16,7 +16,7 @@ void LobbyState::Unload()
 	cout << "Lobby unloaded" << endl;
 }
 
-void LobbyState::Update(StatesMachine * statesMachine)
+void LobbyState::Update()
 {
 	statesMachine->Change(new GameState);
 }
