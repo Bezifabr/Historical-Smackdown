@@ -3,6 +3,8 @@
 
 #include "State.h"
 #include "Character.h"
+#include "Controllers\BasicMovement.h"
+#include "Controllers\JumpMovement.h"
 
 class GameState : public State {
 	sf::Texture bgrTexture;

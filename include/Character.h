@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <SFML\Graphics.hpp>
-#include "MovementController.h"
+#include "Controllers\MovementController.h"
 
 class Character {
 	std::string name;
