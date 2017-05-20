@@ -9,6 +9,7 @@ public:
 	virtual void Update(StatesMachine* statesMachine);
 	virtual void Unload();
 
+	virtual void HandleEvent(sf::Event event);
 	virtual void Render(sf::RenderTarget& renderTarget);
 };
 

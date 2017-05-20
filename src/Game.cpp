@@ -21,12 +21,18 @@ void Game::RunLoop()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+
+			statesMachine.GetCurrentState()->HandleEvent(event);
 		}
 
 		statesMachine.Update();
 		window.clear(sf::Color::White);
 		statesMachine.GetCurrentState()->Render(window);
 		window.display();
+
+
+		if (statesMachine.GetCurrentState()->IsGameFinished())
+			window.close();
 
 	}
 }

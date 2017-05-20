@@ -22,6 +22,11 @@ void IntroState::Unload()
 	cout << "Intro unloaded" << endl;
 }
 
+void IntroState::HandleEvent(sf::Event event)
+{
+	// nothing
+}
+
 void IntroState::Render(sf::RenderTarget & renderTarget)
 {
 	// nothing

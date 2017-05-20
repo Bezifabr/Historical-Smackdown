@@ -21,6 +21,12 @@ void MenuState::Unload()
 	cout << "Menu unloaded" << endl;
 }
 
+void MenuState::HandleEvent(sf::Event event)
+{
+	if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+		isGameFinished = true;
+}
+
 void MenuState::Render(sf::RenderTarget & renderTarget)
 {
 	renderTarget.draw(sprite);
