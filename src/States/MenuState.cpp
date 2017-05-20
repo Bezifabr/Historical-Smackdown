@@ -13,42 +13,27 @@ void MenuState::OnLoad()
 	playTexture.loadFromFile("resources/textures/menu/play.png");
 	statsTexture.loadFromFile("resources/textures/menu/stats.png");
 	exitTexture.loadFromFile("resources/textures/menu/exit.png");
+	menu.AddOption("Play");
+	menu.AddOption("Stats");
+	menu.AddOption("Exit");
 
-	option = 0;
 }
 
 void MenuState::Update()
 {
-	switch (option)
-	{
-	case 0:
-	{
+	std::string option = menu.GetCurrentOption();
+
+	if (option == "Play")
 		sprite.setTexture(playTexture);
-		if (isOptionSelected)
-			statesMachine->Change(new LobbyState);
-		break;
-	}
-	case 1:
-	{
+	if (option == "Stats")
 		sprite.setTexture(statsTexture);
-		if (isOptionSelected)
-			isOptionSelected = false;
-		break;
-	}
-	case 2:
-	{
+	if (option == "Exit")
 		sprite.setTexture(exitTexture);
-		if (isOptionSelected)
-			isGameFinished = true;
-		break;
-	}
-	default:
-		break;
-	}
 }
 
 void MenuState::Unload()
 {
+	menu.ClearOptions();
 	cout << "Menu unloaded" << endl;
 }
 
@@ -56,30 +41,36 @@ void MenuState::HandleEvent(sf::Event event)
 {
 	if (event.type == sf::Event::KeyPressed)
 	{
-		if(event.key.code == sf::Keyboard::Escape)
+		if (event.key.code == sf::Keyboard::Escape)
 			isGameFinished = true;
 
 		else if (event.key.code == sf::Keyboard::Up)
-		{
-			if (option > 0)
-				option--;
-			else
-				option = 2;
-		}
-		else if (event.key.code == sf::Keyboard::Down)
-		{
-			if (option < 2)
-				option++;
-			else
-				option = 0;
+			menu.Previous();
 
-		}
+		else if (event.key.code == sf::Keyboard::Down)
+			menu.Next();
+
 		else if (event.key.code == sf::Keyboard::Return)
-			isOptionSelected = true;
+			ProceedMenuOption();
 	}
 }
 
 void MenuState::Render(sf::RenderTarget & renderTarget)
 {
 	renderTarget.draw(sprite);
+}
+
+void MenuState::ProceedMenuOption()
+{
+	std::string option = menu.GetCurrentOption();
+
+	if (option == "Play")
+		statesMachine->Change(new LobbyState);
+	if (option == "Stats")
+	{
+		// TODO: Add stats state
+	}
+	if (option == "Exit")
+		isGameFinished = true;
+
 }

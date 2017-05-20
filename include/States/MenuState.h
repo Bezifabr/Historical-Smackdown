@@ -1,6 +1,7 @@
 #ifndef MENU_STATE_H
 #define MENU_STATE_H
 
+#include "Menu.h"
 #include "State.h"
 
 class MenuState : public State {
@@ -9,8 +10,7 @@ class MenuState : public State {
 	sf::Texture exitTexture;
 	sf::Sprite sprite;
 
-	int option;
-	bool isOptionSelected = false;
+	Menu menu;
 public:
 	virtual void OnLoad();
 	virtual void Unload();
@@ -18,6 +18,9 @@ public:
 	virtual void Update();
 	virtual void HandleEvent(sf::Event event);
 	virtual void Render(sf::RenderTarget& renderTarget);
+
+private:
+	void ProceedMenuOption();
 };
 
 #endif // !MENU_STATE_H
