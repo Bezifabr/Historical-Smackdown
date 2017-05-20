@@ -4,6 +4,12 @@
 #include "State.h"
 
 class GameState : public State {
+	sf::Texture bgrTexture;
+	sf::Texture player1Texture;
+	sf::Texture player2Texture;
+	sf::Sprite background;
+	sf::Sprite testPlayer1;
+	sf::Sprite testPlayer2;
 public:
 
 	virtual void Update();
