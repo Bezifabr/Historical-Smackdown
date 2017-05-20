@@ -24,8 +24,14 @@ void GameState::OnLoad()
 	basicMovement.SetMovementSpeed(30);
 	basicMovement.SetMoveLeftKey(sf::Keyboard::A);
 	basicMovement.SetMoveRightKey(sf::Keyboard::D);
+
+	jumpMovement.SetFloorLevelY(775);
+	jumpMovement.SetGravity(5);
+	jumpMovement.SetJumpingForce(150);
+	jumpMovement.SetJumpKey(sf::Keyboard::W);
 	
-	player1.SetMovementController(&basicMovement);
+	player1.AddMovementController(&jumpMovement);
+	player1.AddMovementController(&basicMovement);
 
 
 	cout << "Game loaded" << endl;

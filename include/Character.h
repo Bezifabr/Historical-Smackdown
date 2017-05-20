@@ -1,6 +1,7 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
+#include <vector>
 #include <SFML\Graphics.hpp>
 #include "MovementController.h"
 
@@ -9,11 +10,12 @@ class Character {
 	sf::Sprite sprite;
 	sf::Texture texture;
 
-	MovementController* movementController;
+	std::vector<MovementController*> movementControllers;
 public:
 	Character(const std::string& name = "") : name(name) {}
 
-	void SetMovementController(MovementController* movementController);
+	void AddMovementController(MovementController* movementController);
+	void ClearMovementControllers();
 
 	void PerformMovement(sf::Time deltaTime);
 	

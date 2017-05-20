@@ -1,15 +1,21 @@
 #include "Character.h"
 
 
-void Character::SetMovementController(MovementController * movementController)
+void Character::AddMovementController(MovementController * movementController)
 {
-	this->movementController = movementController;
+	this->movementControllers.push_back(movementController);
+}
+
+void Character::ClearMovementControllers()
+{
+	movementControllers.clear();
 }
 
 void Character::PerformMovement(sf::Time deltaTime)
 {
-	if(movementController)
-		movementController->PerformMovement(this, deltaTime);
+	if (!movementControllers.empty())
+		for (auto movement : movementControllers)
+			movement->PerformMovement(this, deltaTime);
 }
 
 void Character::LoadTexture(const std::string & filename)

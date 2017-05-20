@@ -9,6 +9,7 @@ class GameState : public State {
 	sf::Sprite background;
 
 	BasicMovement basicMovement;
+	JumpMovement jumpMovement;
 
 	Character player1;
 	Character player2;
