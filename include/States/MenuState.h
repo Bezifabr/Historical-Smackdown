@@ -12,8 +12,6 @@ class MenuState : public State {
 
 	Menu menu;
 public:
-	virtual void OnLoad();
-	virtual void OnUnload();
 
 	virtual void Update();
 	virtual void HandleEvent(sf::Event event);
@@ -21,6 +19,9 @@ public:
 
 private:
 	void ProceedMenuOption();
+
+	virtual void OnLoad();
+	virtual void OnUnload();
 };
 
 #endif // !MENU_STATE_H
