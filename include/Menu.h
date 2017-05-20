@@ -1,7 +1,8 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include  <vector>
+#include <vector>
+#include <string>
 
 class Menu {
 	std::vector<std::string> options;
