@@ -4,8 +4,12 @@
 #include "State.h"
 
 class MenuState : public State {
-	sf::Texture texture;
+	sf::Texture playTexture;
+	sf::Texture statsTexture;
+	sf::Texture exitTexture;
 	sf::Sprite sprite;
+
+	int option;
 public:
 	virtual void Load();
 	virtual void Unload();
