@@ -6,9 +6,9 @@
 class IntroState : public State {
 public:
 	virtual void Load();
-	virtual void Update(StatesMachine* statesMachine);
 	virtual void Unload();
 
+	virtual void Update(StatesMachine* statesMachine);
 	virtual void HandleEvent(sf::Event event);
 	virtual void Render(sf::RenderTarget& renderTarget);
 };
