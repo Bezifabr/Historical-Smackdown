@@ -2,9 +2,12 @@
 #define CHARACTER_H
 
 #include <vector>
+#include <map>
 #include <SFML\Graphics.hpp>
 #include "Controllers\MovementController.h"
 #include "Controllers\AnimationController.h"
+
+enum class CharStateID { IDLE, WALK };
 
 class Character {
 	std::string name;
@@ -13,8 +16,16 @@ class Character {
 
 	AnimationController animationController;
 	std::vector<MovementController*> movementControllers;
+
+	CharStateID charStateID;
+	std::map<CharStateID, Animation> animations;
 public:
 	Character(const std::string& name = "") : name(name) {}
+
+	CharStateID GetCharacterState();
+	void SetCharacterState(CharStateID charState);
+
+	void AddAnimation(CharStateID charStateID, const Animation& animation);
 
 	void AddMovementController(MovementController* movementController);
 	void ClearMovementControllers();
@@ -33,8 +44,6 @@ public:
 
 	void TurnLeft();
 	void TurnRight();
-
-	void SetAnimation(const Animation& animation);
 
 
 	sf::Vector2f GetPosition();

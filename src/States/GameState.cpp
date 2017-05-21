@@ -29,11 +29,18 @@ void GameState::OnLoad()
 	jumpMovement.SetJumpingForce(200);
 	jumpMovement.SetJumpKey(sf::Keyboard::W);
 
+	Animation stand;
 	stand.AddFrame(sf::IntRect(656, 0, 164, 164));
 	stand.AddFrame(sf::IntRect(656, 164, 164, 164));
 	stand.SetTimeBetweenFrames(sf::seconds(0.5f));
+
+	Animation walk;
+	walk.AddFrame(sf::IntRect(820, 0, 164, 164));
+	walk.AddFrame(sf::IntRect(820, 164, 164, 164));
+	walk.SetTimeBetweenFrames(sf::seconds(0.4f));
 	
-	player1.SetAnimation(stand);
+	player1.AddAnimation(CharStateID::IDLE, stand);
+	player1.AddAnimation(CharStateID::WALK, walk);
 	player1.AddMovementController(&jumpMovement);
 	player1.AddMovementController(&basicMovement);
 
@@ -48,6 +55,7 @@ void GameState::OnUnload()
 
 void GameState::OnUpdate()
 {
+	player1.SetCharacterState(CharStateID::IDLE);
 	player1.PerformMovement(deltaTime);
 
 	if (player1.GetPosition().x > player2.GetPosition().x)

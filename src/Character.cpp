@@ -1,6 +1,21 @@
 #include "Character.h"
 
 
+CharStateID Character::GetCharacterState()
+{
+	return charStateID;
+}
+
+void Character::SetCharacterState(CharStateID charState)
+{
+	this->charStateID = charState;
+}
+
+void Character::AddAnimation(CharStateID charStateID, const Animation & animation)
+{
+	animations[charStateID] = animation;
+}
+
 void Character::AddMovementController(MovementController * movementController)
 {
 	this->movementControllers.push_back(movementController);
@@ -20,6 +35,7 @@ void Character::PerformMovement(sf::Time deltaTime)
 
 void Character::PerformAnimation(sf::Time deltaTime)
 {
+	animationController.SetAnimation(animations[charStateID]);
 	animationController.PerformAnimation(sprite, deltaTime);
 }
 
@@ -64,11 +80,6 @@ void Character::TurnRight()
 {
 	sprite.setScale(1, 1);
 	sprite.setOrigin(0, 0);
-}
-
-void Character::SetAnimation(const Animation & animation)
-{
-	animationController.SetAnimation(animation);
 }
 
 sf::Vector2f Character::GetPosition()

@@ -22,9 +22,15 @@ void BasicMovement::PerformMovement(Character * movingCharacter, sf::Time deltaT
 	float displacement = movementSpeed * 0.01f * deltaTime.asMilliseconds();
 
 	if (sf::Keyboard::isKeyPressed(moveLeftKey) == true)
+	{
 		position.x -= displacement;
+		movingCharacter->SetCharacterState(CharStateID::WALK);
+	}
 	if (sf::Keyboard::isKeyPressed(moveRightKey) == true)
+	{
 		position.x += displacement;
+		movingCharacter->SetCharacterState(CharStateID::WALK);
+	}
 
 	movingCharacter->SetPosition(position);
 }

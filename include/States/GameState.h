@@ -11,8 +11,6 @@ class GameState : public State {
 	sf::Texture bgrTexture;
 	sf::Sprite background;
 
-	Animation stand;
-
 	BasicMovement basicMovement;
 	JumpMovement jumpMovement;
 
