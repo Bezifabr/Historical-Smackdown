@@ -44,9 +44,12 @@ void GameState::OnLoad()
 	jump.AddFrame(sf::IntRect(164, 0, 164, 164));
 	jump.SetTimeBetweenFrames(sf::seconds(0.01f));
 
+	Animation dead(stand); // temporary it has stand animation
+
 	player1.AddAnimation(CharStateID::IDLE, stand);
 	player1.AddAnimation(CharStateID::WALK, walk);
 	player1.AddAnimation(CharStateID::JUMP, jump);
+	player1.AddAnimation(CharStateID::DEAD, dead);
 	player1.AddMovementController(&jumpMovement);
 	player1.AddMovementController(&basicMovement);
 
@@ -68,6 +71,7 @@ void GameState::OnUpdate()
 	player1.MakeFacing(player2);
 	player2.MakeFacing(player1);
 
+	
 
 }
 

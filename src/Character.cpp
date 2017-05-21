@@ -86,6 +86,8 @@ bool Character::IsCollidingWith(sf::FloatRect rect)
 void Character::SetHealth(int health)
 {
 	this->health = health;
+	if (this->health <= 0)
+		charStateID = CharStateID::DEAD;
 }
 
 int Character::GetHealth()
