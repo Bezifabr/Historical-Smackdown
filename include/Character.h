@@ -28,6 +28,9 @@ public:
 	void SetPosition(sf::Vector2f position);
 	void SetPosition(float x, float y);
 
+	void TurnLeft();
+	void TurnRight();
+
 	sf::Vector2f GetPosition();
 };
 

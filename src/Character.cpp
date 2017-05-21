@@ -49,6 +49,18 @@ void Character::SetPosition(float x, float y)
 	SetPosition(sf::Vector2f(x, y));
 }
 
+void Character::TurnLeft()
+{
+	sprite.setScale(-1, 1);
+	sprite.setOrigin(sprite.getTextureRect().width, 0);
+}
+
+void Character::TurnRight()
+{
+	sprite.setScale(1, 1);
+	sprite.setOrigin(0, 0);
+}
+
 sf::Vector2f Character::GetPosition()
 {
 	return sprite.getPosition();

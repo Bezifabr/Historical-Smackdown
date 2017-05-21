@@ -44,6 +44,17 @@ void GameState::OnUnload()
 void GameState::OnUpdate()
 {
 	player1.PerformMovement(deltaTime);
+
+	if (player1.GetPosition().x > player2.GetPosition().x)
+		player1.TurnLeft();
+	else if (player1.GetPosition().x < player2.GetPosition().x)
+		player1.TurnRight();
+
+	if (player2.GetPosition().x > player1.GetPosition().x)
+		player2.TurnLeft();
+	else if (player2.GetPosition().x < player1.GetPosition().x)
+		player2.TurnRight();
+
 }
 
 void GameState::HandleEvent(sf::Event event)
