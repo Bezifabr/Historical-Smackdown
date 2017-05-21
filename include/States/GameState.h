@@ -5,10 +5,13 @@
 #include "Character.h"
 #include "Controllers\BasicMovement.h"
 #include "Controllers\JumpMovement.h"
+#include "Controllers\AnimationController.h"
 
 class GameState : public State {
 	sf::Texture bgrTexture;
 	sf::Sprite background;
+
+	Animation stand;
 
 	BasicMovement basicMovement;
 	JumpMovement jumpMovement;

@@ -18,6 +18,11 @@ void Character::PerformMovement(sf::Time deltaTime)
 			movement->PerformMovement(this, deltaTime);
 }
 
+void Character::PerformAnimation(sf::Time deltaTime)
+{
+	animationController.PerformAnimation(sprite, deltaTime);
+}
+
 void Character::LoadTexture(const std::string & filename)
 {
 	texture.loadFromFile(filename);
@@ -59,6 +64,11 @@ void Character::TurnRight()
 {
 	sprite.setScale(1, 1);
 	sprite.setOrigin(0, 0);
+}
+
+void Character::SetAnimation(const Animation & animation)
+{
+	animationController.SetAnimation(animation);
 }
 
 sf::Vector2f Character::GetPosition()

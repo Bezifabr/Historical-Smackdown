@@ -14,7 +14,7 @@ void GameState::OnLoad()
 	player1.SetName("Mr. Hilter");
 	player2.SetName("Cde. Spalin");
 
-	player1.LoadTexture("resources/textures/characters/hilter.png");
+	player1.LoadTexture("resources/textures/characters/HilterSprite.png");
 	player2.LoadTexture("resources/textures/characters/spalin.png");
 
 	player1.SetPosition(50, 775);
@@ -26,9 +26,14 @@ void GameState::OnLoad()
 
 	jumpMovement.SetFloorLevelY(775);
 	jumpMovement.SetGravity(5);
-	jumpMovement.SetJumpingForce(150);
+	jumpMovement.SetJumpingForce(200);
 	jumpMovement.SetJumpKey(sf::Keyboard::W);
+
+	stand.AddFrame(sf::IntRect(656, 0, 164, 164));
+	stand.AddFrame(sf::IntRect(656, 164, 164, 164));
+	stand.SetTimeBetweenFrames(sf::seconds(0.5f));
 	
+	player1.SetAnimation(stand);
 	player1.AddMovementController(&jumpMovement);
 	player1.AddMovementController(&basicMovement);
 
@@ -54,6 +59,8 @@ void GameState::OnUpdate()
 		player2.TurnLeft();
 	else if (player2.GetPosition().x < player1.GetPosition().x)
 		player2.TurnRight();
+
+	player1.PerformAnimation(deltaTime);
 
 }
 

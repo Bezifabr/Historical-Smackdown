@@ -4,12 +4,14 @@
 #include <vector>
 #include <SFML\Graphics.hpp>
 #include "Controllers\MovementController.h"
+#include "Controllers\AnimationController.h"
 
 class Character {
 	std::string name;
 	sf::Sprite sprite;
 	sf::Texture texture;
 
+	AnimationController animationController;
 	std::vector<MovementController*> movementControllers;
 public:
 	Character(const std::string& name = "") : name(name) {}
@@ -18,6 +20,7 @@ public:
 	void ClearMovementControllers();
 
 	void PerformMovement(sf::Time deltaTime);
+	void PerformAnimation(sf::Time deltaTime);
 	
 	void LoadTexture(const std::string& filename);
 	void Render(sf::RenderTarget& renderTarget);
@@ -30,6 +33,9 @@ public:
 
 	void TurnLeft();
 	void TurnRight();
+
+	void SetAnimation(const Animation& animation);
+
 
 	sf::Vector2f GetPosition();
 };
