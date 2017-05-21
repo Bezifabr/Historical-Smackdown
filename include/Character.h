@@ -42,11 +42,10 @@ public:
 	void SetPosition(sf::Vector2f position);
 	void SetPosition(float x, float y);
 
-	void TurnLeft();
-	void TurnRight();
+	void MakeFacing(const Character& target);
 
 
-	sf::Vector2f GetPosition();
+	const sf::Vector2f& GetPosition() const;
 };
 
 #endif // !CHARACTER_H

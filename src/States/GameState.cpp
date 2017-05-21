@@ -58,15 +58,8 @@ void GameState::OnUpdate()
 	player1.SetCharacterState(CharStateID::IDLE);
 	player1.PerformMovement(deltaTime);
 
-	if (player1.GetPosition().x > player2.GetPosition().x)
-		player1.TurnLeft();
-	else if (player1.GetPosition().x < player2.GetPosition().x)
-		player1.TurnRight();
-
-	if (player2.GetPosition().x > player1.GetPosition().x)
-		player2.TurnLeft();
-	else if (player2.GetPosition().x < player1.GetPosition().x)
-		player2.TurnRight();
+	player1.MakeFacing(player2);
+	player2.MakeFacing(player1);
 
 	player1.PerformAnimation(deltaTime);
 

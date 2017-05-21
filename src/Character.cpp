@@ -70,19 +70,21 @@ void Character::SetPosition(float x, float y)
 	SetPosition(sf::Vector2f(x, y));
 }
 
-void Character::TurnLeft()
+void Character::MakeFacing(const Character & target)
 {
-	sprite.setScale(-1, 1);
-	sprite.setOrigin(sprite.getTextureRect().width, 0);
+	if (GetPosition().x > target.GetPosition().x)
+	{
+		sprite.setScale(-1, 1);
+		sprite.setOrigin(sprite.getTextureRect().width, 0);
+	}
+	else if (GetPosition().x < target.GetPosition().x)
+	{
+		sprite.setScale(1, 1);
+		sprite.setOrigin(0, 0);
+	}
 }
 
-void Character::TurnRight()
-{
-	sprite.setScale(1, 1);
-	sprite.setOrigin(0, 0);
-}
-
-sf::Vector2f Character::GetPosition()
+const sf::Vector2f& Character::GetPosition() const
 {
 	return sprite.getPosition();
 }
