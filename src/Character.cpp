@@ -1,11 +1,5 @@
 #include "Character.h"
 
-
-CharStateID Character::GetCharacterState()
-{
-	return charStateID;
-}
-
 void Character::SetCharacterState(CharStateID charState)
 {
 	this->charStateID = charState;

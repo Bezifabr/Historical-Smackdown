@@ -22,7 +22,6 @@ class Character {
 public:
 	Character(const std::string& name = "") : name(name) {}
 
-	CharStateID GetCharacterState();
 	void SetCharacterState(CharStateID charState);
 
 	void AddAnimation(CharStateID charStateID, const Animation& animation);
