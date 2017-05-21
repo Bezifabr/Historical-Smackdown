@@ -6,10 +6,13 @@
 #include "Controllers\BasicMovement.h"
 #include "Controllers\JumpMovement.h"
 #include "Controllers\AnimationController.h"
+#include "Controllers\PunchFighting.h"
 
 class GameState : public State {
 	sf::Texture bgrTexture;
 	sf::Sprite background;
+
+	PunchFighting punchFighting;
 
 	BasicMovement basicMovement;
 	JumpMovement jumpMovement;

@@ -15,9 +15,22 @@ void Character::AddMovementController(MovementController * movementController)
 	this->movementControllers.push_back(movementController);
 }
 
+void Character::AddFightingController(FightingController * fightingController)
+{
+	fightingControllers.push_back(fightingController);
+}
+
 void Character::ClearMovementControllers()
 {
 	movementControllers.clear();
+}
+
+void Character::PerformAttack(sf::Event event, Character * target)
+{
+	if (!fightingControllers.empty())
+		for (auto contr : fightingControllers)
+			if(event.type == sf::Event::KeyPressed && event.key.code == contr->GetPunchKey())
+				contr->PerformAttack(this, target);
 }
 
 void Character::PerformMovement(sf::Time deltaTime)

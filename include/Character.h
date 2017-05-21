@@ -6,8 +6,9 @@
 #include <SFML\Graphics.hpp>
 #include "Controllers\MovementController.h"
 #include "Controllers\AnimationController.h"
+#include "Controllers\FightingController.h"
 
-enum class CharStateID { IDLE, WALK, JUMP, DEAD };
+enum class CharStateID { IDLE, WALK, JUMP, DEAD, PUNCH };
 
 class Character {
 	std::string name;
@@ -17,6 +18,7 @@ class Character {
 
 	AnimationController animationController;
 	std::vector<MovementController*> movementControllers;
+	std::vector<FightingController*> fightingControllers;
 
 	CharStateID charStateID;
 	std::map<CharStateID, Animation> animations;
@@ -28,8 +30,11 @@ public:
 	void AddAnimation(CharStateID charStateID, const Animation& animation);
 
 	void AddMovementController(MovementController* movementController);
+	void AddFightingController(FightingController* fightingController);
+
 	void ClearMovementControllers();
 
+	void PerformAttack(sf::Event event, Character* target);
 	void PerformMovement(sf::Time deltaTime);
 	void PerformAnimation(sf::Time deltaTime);
 	

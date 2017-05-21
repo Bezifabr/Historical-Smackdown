@@ -29,6 +29,10 @@ void GameState::OnLoad()
 	jumpMovement.SetJumpingForce(200);
 	jumpMovement.SetJumpKey(sf::Keyboard::W);
 
+	punchFighting.SetDamage(100);
+	punchFighting.SetHitBox(sf::FloatRect(45,35,73,65));
+	punchFighting.SetKey(sf::Keyboard::G);
+
 	Animation stand;
 	stand.AddFrame(sf::IntRect(656, 0, 164, 164));
 	stand.AddFrame(sf::IntRect(656, 164, 164, 164));
@@ -46,13 +50,21 @@ void GameState::OnLoad()
 
 	Animation dead(stand); // temporary it has stand animation
 
+	Animation punch;
+	punch.AddFrame(sf::IntRect(492, 0, 164, 164));
+	punch.AddFrame(sf::IntRect(492, 0, 164, 164));
+	punch.SetTimeBetweenFrames(sf::seconds(0.01f));
+
 	player1.AddAnimation(CharStateID::IDLE, stand);
 	player1.AddAnimation(CharStateID::WALK, walk);
 	player1.AddAnimation(CharStateID::JUMP, jump);
 	player1.AddAnimation(CharStateID::DEAD, dead);
+	player1.AddAnimation(CharStateID::PUNCH, punch);
 	player1.AddMovementController(&jumpMovement);
 	player1.AddMovementController(&basicMovement);
+	player1.AddFightingController(&punchFighting);
 
+	player2.SetHealth(100);
 
 	cout << "Game loaded" << endl;
 }
@@ -71,6 +83,8 @@ void GameState::OnUpdate()
 	player1.MakeFacing(player2);
 	player2.MakeFacing(player1);
 
+	if (player2.GetHealth() <= 0)
+		isGameFinished = true;
 	
 
 }
@@ -79,6 +93,8 @@ void GameState::HandleEvent(sf::Event event)
 {
 	if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
 		isGameFinished = true;
+
+	player1.PerformAttack(event, &player2);
 }
 
 void GameState::Render(sf::RenderTarget & renderTarget)
