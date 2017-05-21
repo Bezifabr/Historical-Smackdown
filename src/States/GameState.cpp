@@ -38,9 +38,15 @@ void GameState::OnLoad()
 	walk.AddFrame(sf::IntRect(820, 0, 164, 164));
 	walk.AddFrame(sf::IntRect(820, 164, 164, 164));
 	walk.SetTimeBetweenFrames(sf::seconds(0.4f));
-	
+
+	Animation jump;
+	jump.AddFrame(sf::IntRect(164, 0, 164, 164));
+	jump.AddFrame(sf::IntRect(164, 0, 164, 164));
+	jump.SetTimeBetweenFrames(sf::seconds(0.01f));
+
 	player1.AddAnimation(CharStateID::IDLE, stand);
 	player1.AddAnimation(CharStateID::WALK, walk);
+	player1.AddAnimation(CharStateID::JUMP, jump);
 	player1.AddMovementController(&jumpMovement);
 	player1.AddMovementController(&basicMovement);
 
@@ -57,11 +63,11 @@ void GameState::OnUpdate()
 {
 	player1.SetCharacterState(CharStateID::IDLE);
 	player1.PerformMovement(deltaTime);
+	player1.PerformAnimation(deltaTime);
 
 	player1.MakeFacing(player2);
 	player2.MakeFacing(player1);
 
-	player1.PerformAnimation(deltaTime);
 
 }
 

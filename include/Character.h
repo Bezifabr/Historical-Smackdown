@@ -7,7 +7,7 @@
 #include "Controllers\MovementController.h"
 #include "Controllers\AnimationController.h"
 
-enum class CharStateID { IDLE, WALK };
+enum class CharStateID { IDLE, WALK, JUMP };
 
 class Character {
 	std::string name;

@@ -33,6 +33,8 @@ void JumpMovement::PerformMovement(Character * jumpingCharacter, sf::Time deltaT
 
 	if (isJumping == true)
 	{
+		jumpingCharacter->SetCharacterState(CharStateID::JUMP);
+
 		velocityY -= gravity;
 
 		float displacement = velocityY * 0.01f * deltaTime.asMilliseconds();
