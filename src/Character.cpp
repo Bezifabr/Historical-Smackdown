@@ -78,6 +78,11 @@ void Character::MakeFacing(const Character & target)
 	}
 }
 
+bool Character::IsCollidingWith(sf::FloatRect rect)
+{
+	return sprite.getGlobalBounds().intersects(rect);
+}
+
 const sf::Vector2f& Character::GetPosition() const
 {
 	return sprite.getPosition();

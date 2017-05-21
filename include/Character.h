@@ -43,6 +43,7 @@ public:
 
 	void MakeFacing(const Character& target);
 
+	bool IsCollidingWith(sf::FloatRect rect);
 
 	const sf::Vector2f& GetPosition() const;
 };
