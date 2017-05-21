@@ -83,6 +83,16 @@ bool Character::IsCollidingWith(sf::FloatRect rect)
 	return sprite.getGlobalBounds().intersects(rect);
 }
 
+void Character::SetHealth(int health)
+{
+	this->health = health;
+}
+
+int Character::GetHealth()
+{
+	return health;
+}
+
 const sf::Vector2f& Character::GetPosition() const
 {
 	return sprite.getPosition();

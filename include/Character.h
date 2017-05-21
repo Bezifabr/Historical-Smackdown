@@ -13,6 +13,7 @@ class Character {
 	std::string name;
 	sf::Sprite sprite;
 	sf::Texture texture;
+	int health;
 
 	AnimationController animationController;
 	std::vector<MovementController*> movementControllers;
@@ -44,6 +45,9 @@ public:
 	void MakeFacing(const Character& target);
 
 	bool IsCollidingWith(sf::FloatRect rect);
+
+	void SetHealth(int health);
+	int GetHealth();
 
 	const sf::Vector2f& GetPosition() const;
 };
