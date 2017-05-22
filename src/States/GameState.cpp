@@ -30,7 +30,7 @@ void GameState::OnLoad()
 	jumpMovement.SetJumpingForce(200);
 	jumpMovement.SetJumpKey(sf::Keyboard::W);
 
-	punchFighting.SetDamage(100);
+	punchFighting.SetDamage(10);
 	punchFighting.SetHitBox(sf::FloatRect(45,35,73,65));
 	punchFighting.SetKey(sf::Keyboard::G);
 
