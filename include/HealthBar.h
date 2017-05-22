@@ -15,6 +15,7 @@ public:
 	void LoadTextures(const std::string& full, const std::string& empty);
 	void Update(int health);
 	void Draw(sf::RenderTarget& renderTarget);
+	void SetPosition(float x, float y);
 };
 
 #endif // !HEALTH_BAR_H

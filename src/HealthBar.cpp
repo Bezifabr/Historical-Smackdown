@@ -17,3 +17,9 @@ void HealthBar::Draw(sf::RenderTarget & renderTarget)
 	renderTarget.draw(empty);
 	renderTarget.draw(full);
 }
+
+void HealthBar::SetPosition(float x, float y)
+{
+	full.setPosition(x, y);
+	empty.setPosition(x, y);
+}
