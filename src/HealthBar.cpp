@@ -5,6 +5,8 @@ void HealthBar::LoadTextures(const std::string & full, const std::string & empty
 {
 	fullTexture.loadFromFile(full);
 	emptyTexture.loadFromFile(empty);
+	this->full.setTexture(fullTexture);
+	this->empty.setTexture(emptyTexture);
 }
 
 void HealthBar::Update(int health)
