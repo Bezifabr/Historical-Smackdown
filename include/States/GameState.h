@@ -17,6 +17,14 @@ class GameState : public State {
 	BasicMovement basicMovement;
 	JumpMovement jumpMovement;
 
+	sf::Texture healthBarFullTexture;
+	sf::Texture healthBarEmptyTexture;
+
+	sf::Sprite healthBarFull1;
+	sf::Sprite healthBarFull2;
+	sf::Sprite healthBarEmpty1;
+	sf::Sprite healthBarEmpty2;
+
 	Character player1;
 	Character player2;
 public:

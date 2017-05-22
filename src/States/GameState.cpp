@@ -65,7 +65,22 @@ void GameState::OnLoad()
 	player1.AddMovementController(&basicMovement);
 	player1.AddFightingController(&punchFighting);
 
+	player1.SetHealth(100);
 	player2.SetHealth(100);
+
+	healthBarEmptyTexture.loadFromFile("resources/textures/GUI/Health_bar_empty.png");
+	healthBarFullTexture.loadFromFile("resources/textures/GUI/Health_bar.png");
+
+	healthBarEmpty1.setTexture(healthBarEmptyTexture);
+	healthBarEmpty2.setTexture(healthBarEmptyTexture);
+	healthBarFull1.setTexture(healthBarFullTexture);
+	healthBarFull2.setTexture(healthBarFullTexture);
+
+	healthBarEmpty1.setPosition(50, 50);
+	healthBarFull1.setPosition(50, 50);
+	healthBarEmpty2.setPosition(700, 50);
+	healthBarFull2.setPosition(700, 50);
+
 
 	cout << "Game loaded" << endl;
 }
@@ -84,9 +99,12 @@ void GameState::OnUpdate()
 	player1.MakeFacing(player2);
 	player2.MakeFacing(player1);
 
+	healthBarFull1.setScale(player1.GetHealth() * 0.01f, 1);
+	healthBarFull2.setScale(player2.GetHealth() * 0.01f, 1);
+
 	if (player2.GetHealth() <= 0)
 		statesMachine->Change(new OverState(player1.GetName()));
-
+	
 
 }
 
@@ -103,4 +121,9 @@ void GameState::Render(sf::RenderTarget & renderTarget)
 	renderTarget.draw(background);
 	player1.Render(renderTarget);
 	player2.Render(renderTarget);
+
+	renderTarget.draw(healthBarEmpty1);
+	renderTarget.draw(healthBarEmpty2);
+	renderTarget.draw(healthBarFull1);
+	renderTarget.draw(healthBarFull2);
 }
