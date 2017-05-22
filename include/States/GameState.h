@@ -7,6 +7,7 @@
 #include "Controllers\JumpMovement.h"
 #include "Controllers\AnimationController.h"
 #include "Controllers\PunchFighting.h"
+#include "HealthBar.h"
 
 class GameState : public State {
 	sf::Texture bgrTexture;
@@ -17,13 +18,8 @@ class GameState : public State {
 	BasicMovement basicMovement;
 	JumpMovement jumpMovement;
 
-	sf::Texture healthBarFullTexture;
-	sf::Texture healthBarEmptyTexture;
-
-	sf::Sprite healthBarFull1;
-	sf::Sprite healthBarFull2;
-	sf::Sprite healthBarEmpty1;
-	sf::Sprite healthBarEmpty2;
+	HealthBar healthBar1;
+	HealthBar healthBar2;
 
 	Character player1;
 	Character player2;
