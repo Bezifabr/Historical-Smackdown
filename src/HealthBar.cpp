@@ -1,8 +1,5 @@
 #include "HealthBar.h"
 
-HealthBar::HealthBar(const std::string & fullSource, const std::string & emptySource)
-{
-}
 
 void HealthBar::LoadTextures(const std::string & full, const std::string & empty)
 {
