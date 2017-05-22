@@ -9,3 +9,14 @@ sf::Keyboard::Key FightingController::GetPunchKey()
 {
 	return key;
 }
+
+void FightingController::LoadSound(const std::string & soundBufferSource)
+{
+	soundBuffer.loadFromFile(soundBufferSource);
+	sound.setBuffer(soundBuffer);
+}
+
+void FightingController::PlaySound()
+{
+	sound.play();
+}

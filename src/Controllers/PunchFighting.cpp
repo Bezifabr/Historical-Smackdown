@@ -19,6 +19,7 @@ void PunchFighting::PerformAttack(Character * attacker, Character * target)
 	hitBox.setPosition(position);
 	if (target->IsCollidingWith(hitBox.getGlobalBounds()))
 	{
+		PlaySound();
 		int health = target->GetHealth();
 		health -= damage;
 		target->SetHealth(health);

@@ -33,6 +33,7 @@ void GameState::OnLoad()
 	punchFighting.SetDamage(10);
 	punchFighting.SetHitBox(sf::FloatRect(45,35,73,65));
 	punchFighting.SetKey(sf::Keyboard::G);
+	punchFighting.LoadSound("resources/sounds/punch.wav");
 
 	Animation stand;
 	stand.AddFrame(sf::IntRect(656, 0, 164, 164));
