@@ -1,4 +1,5 @@
 #include "States\GameState.h"
+#include "States\OverState.h"
 #include "StatesMachine.h"
 
 #include <iostream>
@@ -84,8 +85,8 @@ void GameState::OnUpdate()
 	player2.MakeFacing(player1);
 
 	if (player2.GetHealth() <= 0)
-		isGameFinished = true;
-	
+		statesMachine->Change(new OverState(player1.GetName()));
+
 
 }
 
