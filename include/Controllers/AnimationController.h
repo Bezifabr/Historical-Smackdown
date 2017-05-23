@@ -26,8 +26,6 @@ class AnimationController {
 	const Animation* currentAnimation;
 	sf::Time currentTime;
 	std::size_t currentFrame = 0;
-	bool m_isPaused;
-	bool m_isLooped;
 public:
 	AnimationController(sf::Time currentTime = sf::seconds(0), std::size_t currentFrame = 0);
 
