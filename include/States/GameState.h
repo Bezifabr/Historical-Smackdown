@@ -14,9 +14,12 @@ class GameState : public State {
 	sf::Sprite background;
 
 	PunchFighting punchFighting;
+	PunchFighting punchFighting2;
 
 	BasicMovement basicMovement;
 	JumpMovement jumpMovement;
+	BasicMovement basicMovement2;
+	JumpMovement jumpMovement2;
 
 	HealthBar healthBar1;
 	HealthBar healthBar2;
