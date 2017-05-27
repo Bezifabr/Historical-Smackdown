@@ -7,6 +7,7 @@ class JumpMovement : public MovementController {
 	float jumpingForce = 50;
 	float gravity = 10;
 	float floorLevelY = 775;
+	int framesPerSecond;
 
 	float velocityY = 0;
 	bool isJumping = false;
@@ -19,6 +20,7 @@ public:
 	void SetJumpingForce(float jumpingForce);
 	void SetGravity(float gravity);
 	void SetFloorLevelY(float y);
+	void SetFramesPerSeconds(int fps);
 
 	void SetJumpKey(sf::Keyboard::Key jumpKey);
 
