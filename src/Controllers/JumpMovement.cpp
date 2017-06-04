@@ -42,7 +42,7 @@ void JumpMovement::PerformMovement(Character * jumpingCharacter, sf::Time deltaT
 
 		velocityY -= gravity;
 		float pixelsPerFrame = velocityY / framesPerSecond;
-		float displacement = velocityY * 0.01f * deltaTime.asMilliseconds();
+		float displacement = pixelsPerFrame * .5f * deltaTime.asMilliseconds();
 		position.y -= displacement;
 		jumpingCharacter->SetPosition(position);
 
