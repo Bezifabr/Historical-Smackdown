@@ -3,7 +3,7 @@
 void Game::CreateWindow(const std::string & title)
 {
 	window.create(sf::VideoMode::getDesktopMode(), title);
-	window.setFramerateLimit(120);
+	window.setVerticalSyncEnabled(true);
 }
 
 void Game::Initialize(State * initState)
