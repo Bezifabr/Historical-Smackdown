@@ -31,11 +31,9 @@ void GameState::OnLoad()
 	jumpMovement.SetFloorLevelY(775);
 	jumpMovement.SetGravity(10);
 	jumpMovement.SetJumpingForce(300);
-	jumpMovement.SetFramesPerSeconds(60);
 	jumpMovement.SetJumpKey(sf::Keyboard::W);
 	jumpMovement2.SetFloorLevelY(775);
 	jumpMovement2.SetGravity(10);
-	jumpMovement2.SetFramesPerSeconds(60);
 	jumpMovement2.SetJumpingForce(300);
 	jumpMovement2.SetJumpKey(sf::Keyboard::Up);
 

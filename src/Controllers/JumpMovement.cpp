@@ -16,11 +16,6 @@ void JumpMovement::SetFloorLevelY(float y)
 	this->floorLevelY = y;
 }
 
-void JumpMovement::SetFramesPerSeconds(int fps)
-{
-	this->framesPerSecond = fps;
-}
-
 void JumpMovement::SetJumpKey(sf::Keyboard::Key jumpKey)
 {
 	this->jumpKey = jumpKey;
@@ -41,9 +36,8 @@ void JumpMovement::PerformMovement(Character * jumpingCharacter, sf::Time deltaT
 		jumpingCharacter->SetCharacterState(CharStateID::JUMP);
 
 		velocityY -= gravity;
-		float pixelsPerFrame = velocityY / framesPerSecond;
-		float displacement = pixelsPerFrame * .5f * deltaTime.asMilliseconds();
-		position.y -= displacement;
+		float displacement = velocityY / 200;
+		position.y -= displacement * deltaTime.asMilliseconds();
 		jumpingCharacter->SetPosition(position);
 
 		if (position.y >= floorLevelY)
