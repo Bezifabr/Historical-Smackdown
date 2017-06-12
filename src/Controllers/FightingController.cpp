@@ -30,6 +30,16 @@ void FightingController::ResetAnimationClock()
 	animationTime.restart();
 }
 
+void FightingController::SetAttackTime(sf::Time time)
+{
+	this->attackTime = time;
+}
+
+sf::Time FightingController::GetAttackTime()
+{
+	return attackTime;
+}
+
 void FightingController::LoadSound(const std::string & soundBufferSource)
 {
 	soundBuffer.loadFromFile(soundBufferSource);

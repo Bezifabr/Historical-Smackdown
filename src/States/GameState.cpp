@@ -41,11 +41,13 @@ void GameState::OnLoad()
 	punchFighting.SetHitBox(sf::FloatRect(45,35,73,65));
 	punchFighting.SetKey(sf::Keyboard::G);
 	punchFighting.SetAttackState(CharStateID::PUNCH);
+	punchFighting.SetAttackTime(sf::seconds(.25));
 	punchFighting.LoadSound("resources/sounds/punch.wav");
 	punchFighting2.SetDamage(10);
 	punchFighting2.SetHitBox(sf::FloatRect(100,70,40,40));
 	punchFighting2.SetKey(sf::Keyboard::L);
 	punchFighting2.SetAttackState(CharStateID::PUNCH);
+	punchFighting2.SetAttackTime(sf::seconds(.25));
 	punchFighting2.LoadSound("resources/sounds/punch.wav");
 
 	Animation stand;

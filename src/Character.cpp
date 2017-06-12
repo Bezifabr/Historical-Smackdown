@@ -34,7 +34,7 @@ void Character::PerformAttack(sf::Event event, Character * target)
 {
 	if (!fightingControllers.empty())
 		for (auto contr : fightingControllers)
-			if (event.type == sf::Event::KeyPressed && event.key.code == contr->GetPunchKey())
+			if (event.type == sf::Event::KeyPressed && event.key.code == contr->GetPunchKey() && contr->GetAnimationTime() >= contr->GetAttackTime())
 			{
 				contr->ResetAnimationClock();
 				SetCharacterState(contr->GetAttackState());
@@ -46,7 +46,7 @@ void Character::EndAttack()
 {
 	if(!fightingControllers.empty())
 		for(auto contr : fightingControllers)
-			if (contr->GetAttackState() == GetCurrentState() && contr->GetAnimationTime() >= sf::seconds(0.25))
+			if (contr->GetAttackState() == GetCurrentState() && contr->GetAnimationTime() >= contr->GetAttackTime())
 			{
 				SetCharacterState(CharStateID::IDLE);
 			}

@@ -15,6 +15,7 @@ class FightingController {
 	sf::SoundBuffer soundBuffer;
 	CharStateID fightingState;
 	sf::Clock animationTime;
+	sf::Time attackTime;
 public:
 	void SetKey(sf::Keyboard::Key key);
 	sf::Keyboard::Key GetPunchKey();
@@ -24,6 +25,9 @@ public:
 
 	sf::Time GetAnimationTime();
 	void ResetAnimationClock();
+
+	void SetAttackTime(sf::Time time);
+	sf::Time GetAttackTime();
 
 	void LoadSound(const std::string& soundBufferSource);
 	void PlaySound();

@@ -4,6 +4,7 @@ void Game::CreateWindow(const std::string & title)
 {
 	window.create(sf::VideoMode::getDesktopMode(), title);
 	window.setVerticalSyncEnabled(true);
+	window.setKeyRepeatEnabled(false);
 }
 
 void Game::Initialize(State * initState)
