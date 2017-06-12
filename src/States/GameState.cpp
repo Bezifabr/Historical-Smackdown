@@ -121,10 +121,10 @@ void GameState::OnUnload()
 
 void GameState::OnUpdate()
 {
-	player1.SetCharacterState(CharStateID::IDLE);
+	//player1.SetCharacterState(CharStateID::IDLE);
 	player1.PerformMovement(deltaTime);
 	player1.PerformAnimation(deltaTime);
-	player2.SetCharacterState(CharStateID::IDLE);
+	//player2.SetCharacterState(CharStateID::IDLE);
 	player2.PerformMovement(deltaTime);
 	player2.PerformAnimation(deltaTime);
 
