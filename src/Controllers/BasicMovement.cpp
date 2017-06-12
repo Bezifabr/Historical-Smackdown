@@ -26,11 +26,13 @@ void BasicMovement::PerformMovement(Character * movingCharacter, sf::Time deltaT
 		position.x -= displacement;
 		movingCharacter->SetCharacterState(CharStateID::WALK);
 	}
-	if (sf::Keyboard::isKeyPressed(moveRightKey) == true)
+	else if (sf::Keyboard::isKeyPressed(moveRightKey) == true)
 	{
 		position.x += displacement;
 		movingCharacter->SetCharacterState(CharStateID::WALK);
 	}
+	else if (movingCharacter->GetCurrentState() == CharStateID::WALK)
+		movingCharacter->SetCharacterState(CharStateID::IDLE);
 
 	movingCharacter->SetPosition(position);
 }
