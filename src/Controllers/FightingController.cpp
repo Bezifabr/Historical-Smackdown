@@ -10,6 +10,26 @@ sf::Keyboard::Key FightingController::GetPunchKey()
 	return key;
 }
 
+void FightingController::SetAttackState(CharStateID attackState)
+{
+	this->fightingState = attackState;
+}
+
+CharStateID FightingController::GetAttackState()
+{
+	return fightingState;
+}
+
+sf::Time FightingController::GetAnimationTime()
+{
+	return animationTime.getElapsedTime();
+}
+
+void FightingController::ResetAnimationClock()
+{
+	animationTime.restart();
+}
+
 void FightingController::LoadSound(const std::string & soundBufferSource)
 {
 	soundBuffer.loadFromFile(soundBufferSource);

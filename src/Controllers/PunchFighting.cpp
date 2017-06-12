@@ -14,7 +14,6 @@ void PunchFighting::SetHitBox(sf::FloatRect rect)
 
 void PunchFighting::PerformAttack(Character * attacker, Character * target)
 {
-	attacker->SetCharacterState(CharStateID::PUNCH);
 	sf::Vector2f position = attacker->GetPosition() + hitBoxPosition;
 	hitBox.setPosition(position);
 	if (target->IsCollidingWith(hitBox.getGlobalBounds()))

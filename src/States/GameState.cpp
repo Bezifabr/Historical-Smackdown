@@ -40,10 +40,12 @@ void GameState::OnLoad()
 	punchFighting.SetDamage(10);
 	punchFighting.SetHitBox(sf::FloatRect(45,35,73,65));
 	punchFighting.SetKey(sf::Keyboard::G);
+	punchFighting.SetAttackState(CharStateID::PUNCH);
 	punchFighting.LoadSound("resources/sounds/punch.wav");
 	punchFighting2.SetDamage(10);
 	punchFighting2.SetHitBox(sf::FloatRect(100,70,40,40));
 	punchFighting2.SetKey(sf::Keyboard::L);
+	punchFighting2.SetAttackState(CharStateID::PUNCH);
 	punchFighting2.LoadSound("resources/sounds/punch.wav");
 
 	Animation stand;
@@ -121,10 +123,8 @@ void GameState::OnUnload()
 
 void GameState::OnUpdate()
 {
-	//player1.SetCharacterState(CharStateID::IDLE);
 	player1.PerformMovement(deltaTime);
 	player1.PerformAnimation(deltaTime);
-	//player2.SetCharacterState(CharStateID::IDLE);
 	player2.PerformMovement(deltaTime);
 	player2.PerformAnimation(deltaTime);
 
@@ -133,6 +133,9 @@ void GameState::OnUpdate()
 
 	healthBar1.Update(player1.GetHealth());
 	healthBar2.Update(player2.GetHealth());
+
+	player1.EndAttack();
+	player2.EndAttack();
 
 	if (player2.GetHealth() <= 0)
 		statesMachine->Change(new OverState(player1.GetName()));

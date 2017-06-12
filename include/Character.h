@@ -7,8 +7,7 @@
 #include "Controllers\MovementController.h"
 #include "Controllers\AnimationController.h"
 #include "Controllers\FightingController.h"
-
-enum class CharStateID { IDLE, WALK, JUMP, DEAD, PUNCH };
+#include "CharacterState.h"
 
 class Character {
 	std::string name;
@@ -36,6 +35,7 @@ public:
 	void ClearMovementControllers();
 
 	void PerformAttack(sf::Event event, Character* target);
+	void EndAttack();
 	void PerformMovement(sf::Time deltaTime);
 	void PerformAnimation(sf::Time deltaTime);
 	
