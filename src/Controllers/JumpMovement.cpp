@@ -45,6 +45,7 @@ void JumpMovement::PerformMovement(Character * jumpingCharacter, sf::Time deltaT
 			isJumping = false;
 			velocityY = 0;
 			jumpingCharacter->SetPosition(position.x, floorLevelY);
+			jumpingCharacter->SetCharacterState(CharStateID::IDLE);
 		}
 	}
 
