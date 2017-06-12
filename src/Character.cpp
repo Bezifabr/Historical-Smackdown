@@ -5,6 +5,11 @@ void Character::SetCharacterState(CharStateID charState)
 	this->charStateID = charState;
 }
 
+CharStateID Character::GetCurrentState()
+{
+	return charStateID;
+}
+
 void Character::AddAnimation(CharStateID charStateID, const Animation & animation)
 {
 	animations[charStateID] = animation;
