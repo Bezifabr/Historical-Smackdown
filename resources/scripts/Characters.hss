@@ -1,0 +1,65 @@
+// Characters states are made statically!!
+
+CHARACTER CH_HILTER{
+
+    SetName("Mr. Hilter");
+    LoadTexture("resources/textures/characters/HilterSprite.png");
+
+    AddComponent(COMP_MOV_BASIC);
+    AddComponent(COMP_MOV_JUMP);
+    AddComponent(COMP_FIGHT_PUNCH);
+
+    SetStates(DEFAULT);  //Adds default character states
+
+    Animation ANI_STAND{
+        SetState(STATE_IDLE);
+        AddFrame(656,0,164,164);
+        AddFrame(656,164,164,164);
+        SetTimeBetweenFrames(500);
+    }
+
+    Animation ANI_WALK{
+        SetState(STATE_WALK);
+        AddFrame(820,0,164,164);
+        AddFrame(820,164,164,164);
+        SetTimeBetweenFrames(400);
+    }
+
+    Animation ANI_JUMP{
+        SetState(STATE_JUMP);
+        AddFrame(164,0,164,164);
+        AddFrame(164,0,164,164);
+        SetTimeBetweenFrames(10);
+    }
+
+    Animation ANI_PUNCH{
+        SetState(STATE_PUNCH);
+        AddFrame(492,0,164,164);
+        AddFrame(492,0,164,164);
+        SetTimeBetweenFrames(10);
+    }
+
+    Animation ANI_DEAD{
+        SetState(STATE_DEAD);
+        AddFrame(656,0,164,164);
+        AddFrame(656,164,164,164);
+        SetTimeBetweenFrames(500);
+    }
+
+    COMP_FIGHT_PUNCH.Damage = 10;
+    COMP_FIGHT_PUNCH.HitBox = (45,35,73,65);
+    COMP_FIGHT_PUNCH.Key    = 6;
+    COMP_FIGHT_PUNCH.State  = STATE_PUNCH;
+    COMP_FIGHT_PUNCH.AttackTime = 250;
+    COMP_FIGHT_PUNCH.Sound = "resources/sounds/punch.wav";
+
+    COMP_MOV_BASIC.Speed = 30;
+    COMP_MOV_BASIC.LeftKey = 0;
+    COMP_MOV_BASIC.RightKey = 3;
+
+    COMP_MOV_JUMP.FloorLevel = 775;
+    COMP_MOV_JUMP.Gravity = 10;
+    COMP_MOV_JUMP.Force = 300;
+    COMP_MOV_JUMP.Key = 22;
+
+}

@@ -9,6 +9,8 @@ using std::endl;
 
 void GameState::OnLoad()
 {
+	interpreter.LoadScriptFromFile("resources/scripts/Characters.hss");
+	interpreter.ShowLoadedWords();
 
 	bgrTexture.loadFromFile("resources/textures/arenas/abbacy.png");
 	background.setTexture(bgrTexture);

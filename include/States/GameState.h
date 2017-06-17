@@ -7,11 +7,14 @@
 #include "Controllers\JumpMovement.h"
 #include "Controllers\AnimationController.h"
 #include "Controllers\PunchFighting.h"
+#include "Interpreter\Interpreter.h"
 #include "HealthBar.h"
 
 class GameState : public State {
 	sf::Texture bgrTexture;
 	sf::Sprite background;
+
+	Interpreter interpreter;
 
 	PunchFighting punchFighting;
 	PunchFighting punchFighting2;
