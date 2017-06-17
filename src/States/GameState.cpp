@@ -9,6 +9,7 @@ using std::endl;
 
 void GameState::OnLoad()
 {
+
 	bgrTexture.loadFromFile("resources/textures/arenas/abbacy.png");
 	background.setTexture(bgrTexture);
 
@@ -114,6 +115,8 @@ void GameState::OnLoad()
 	healthBar1.SetPosition(50, 50);
 	healthBar2.SetPosition(700, 50);
 
+	player1.SetCharacterState(CharStateID::IDLE);
+	player2.SetCharacterState(CharStateID::IDLE);
 
 	cout << "Game loaded" << endl;
 }
@@ -126,8 +129,8 @@ void GameState::OnUnload()
 void GameState::OnUpdate()
 {
 	player1.PerformMovement(deltaTime);
-	player1.PerformAnimation(deltaTime);
 	player2.PerformMovement(deltaTime);
+	player1.PerformAnimation(deltaTime);
 	player2.PerformAnimation(deltaTime);
 
 	player1.MakeFacing(player2);
