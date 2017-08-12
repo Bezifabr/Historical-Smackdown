@@ -104,6 +104,16 @@ void Parser::LookForObject(std::string phrase)
 		isTypeFound = false;
 		isNameFound = false;
 		isDefinitionFound = false;
+
+
+		HANDLE hConsole;
+		hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+		SetConsoleTextAttribute(hConsole, 6);
+
+		std::cout << objects[objects.size() - 1].type << " " << objects[objects.size() - 1].id << std::endl;
+
+		SetConsoleTextAttribute(hConsole, 7);
 	}
 }
 
