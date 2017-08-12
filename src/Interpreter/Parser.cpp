@@ -29,6 +29,7 @@ Parser::Parser()
 	instructionsAtlas.push_back("SetFloorLevel");
 	instructionsAtlas.push_back("SetGravity");
 	instructionsAtlas.push_back("SetForce");
+	instructionsAtlas.push_back("AddComponent");
 }
 
 void Parser::CheckSyntax(std::string phrase)
