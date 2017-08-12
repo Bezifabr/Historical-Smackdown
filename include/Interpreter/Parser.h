@@ -29,7 +29,6 @@ struct ScriptObject {
 		type = "[EMPTY]";
 		id = "[EMPTY]";
 		ownedBy = "[EMPTY]";
-	//	instructions.clear();
 		while (!instructions.empty())
 			instructions.pop();
 	}
@@ -40,7 +39,6 @@ class Parser {
 
 	std::vector<ScriptObject> objects;
 	std::stack<std::string> ownershipStack;
-	//std::string currentOwnership = "MAIN";
 
 	ScriptInstruction tempInstruction;
 
@@ -50,8 +48,6 @@ class Parser {
 	bool isTypeFound = false;
 	bool isNameFound = false;
 	bool isDefinitionFound = false;
-
-	bool isObjectFound = false;
 
 	bool errorOccured = false;
 	

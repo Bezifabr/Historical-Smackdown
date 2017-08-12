@@ -103,7 +103,6 @@ void Parser::LookForObject(std::string phrase)
 		isTypeFound = false;
 		isNameFound = false;
 		isDefinitionFound = false;
-		isObjectFound = true;
 	}
 }
 
@@ -130,8 +129,6 @@ void Parser::LookForType(std::string phrase)
 	else
 	{
 		isTypeFound = false;
-//		errorOccured = true;
-//		errorMessage = "[PARSER ERROR] Illegal type.";
 	}
 }
 
