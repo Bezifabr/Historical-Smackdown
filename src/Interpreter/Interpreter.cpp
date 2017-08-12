@@ -23,6 +23,14 @@ void Interpreter::LoadScriptFromFile(const char * source)
 		}
 		file.close();
 	}
+
+	while (!phrasesQueue.empty() && !parser.IsErrorOccurring())
+	{
+		parser.CheckSyntax(phrasesQueue.front());
+		phrasesQueue.pop();
+	}
+	parser.ReturnResult();
+
 }
 
 void Interpreter::ShowLoadedWords()

@@ -5,61 +5,85 @@ CHARACTER CH_HILTER{
     SetName("Mr. Hilter");
     LoadTexture("resources/textures/characters/HilterSprite.png");
 
-    AddComponent(COMP_MOV_BASIC);
-    AddComponent(COMP_MOV_JUMP);
-    AddComponent(COMP_FIGHT_PUNCH);
+  //  AddComponent(COMP_MOV_BASIC);
+  //  AddComponent(COMP_MOV_JUMP);
+  //  AddComponent(COMP_FIGHT_PUNCH);
 
     SetStates(DEFAULT);  //Adds default character states
+    SetState(STATE_IDLE);
 
-    Animation ANI_STAND{
+    ANIMATION ANI_STAND{
         SetState(STATE_IDLE);
         AddFrame(656,0,164,164);
         AddFrame(656,164,164,164);
         SetTimeBetweenFrames(500);
     }
 
-    Animation ANI_WALK{
+    ANIMATION ANI_WALK{
         SetState(STATE_WALK);
         AddFrame(820,0,164,164);
         AddFrame(820,164,164,164);
         SetTimeBetweenFrames(400);
     }
 
-    Animation ANI_JUMP{
+    ANIMATION ANI_JUMP{
         SetState(STATE_JUMP);
         AddFrame(164,0,164,164);
         AddFrame(164,0,164,164);
         SetTimeBetweenFrames(10);
     }
 
-    Animation ANI_PUNCH{
+    ANIMATION ANI_PUNCH{
         SetState(STATE_PUNCH);
         AddFrame(492,0,164,164);
         AddFrame(492,0,164,164);
         SetTimeBetweenFrames(10);
     }
 
-    Animation ANI_DEAD{
+    ANIMATION ANI_DEAD{
         SetState(STATE_DEAD);
         AddFrame(656,0,164,164);
         AddFrame(656,164,164,164);
         SetTimeBetweenFrames(500);
     }
 
-    COMP_FIGHT_PUNCH.Damage = 10;
-    COMP_FIGHT_PUNCH.HitBox = (45,35,73,65);
-    COMP_FIGHT_PUNCH.Key    = 6;
-    COMP_FIGHT_PUNCH.State  = STATE_PUNCH;
-    COMP_FIGHT_PUNCH.AttackTime = 250;
-    COMP_FIGHT_PUNCH.Sound = "resources/sounds/punch.wav";
+    COMPONENT COMP_FIGHT_PUNCH{
+        SetDamage(10);
+        SetHitbox(45,35,73,65);
+        SetKey(6);
+        SetState(STATE_PUNCH);
+        SetAttackTime(250);
+        SetSound("resources/sounds/punch.wav");
 
-    COMP_MOV_BASIC.Speed = 30;
-    COMP_MOV_BASIC.LeftKey = 0;
-    COMP_MOV_BASIC.RightKey = 3;
+    }
 
-    COMP_MOV_JUMP.FloorLevel = 775;
-    COMP_MOV_JUMP.Gravity = 10;
-    COMP_MOV_JUMP.Force = 300;
-    COMP_MOV_JUMP.Key = 22;
+    COMPONENT COMP_MOV_BASIC{
+        SetSpeed(30);
+        SetLeftKey(0);
+        SetRightKey(3);
+    }
+
+    COMPONENT COMP_MOV_JUMP{
+        SetFloorLevel(775);
+        SetGravity(10);
+        SetForce(300);
+        SetKey(22);
+    }
+
+  //  COMP_FIGHT_PUNCH.Damage = 10;
+  //  COMP_FIGHT_PUNCH.HitBox = (45,35,73,65);
+  //  COMP_FIGHT_PUNCH.Key    = 6;
+  //  COMP_FIGHT_PUNCH.State  = STATE_PUNCH;
+  //  COMP_FIGHT_PUNCH.AttackTime = 250;
+  //  COMP_FIGHT_PUNCH.Sound = "resources/sounds/punch.wav";
+
+  //  COMP_MOV_BASIC.Speed = 30;
+  //  COMP_MOV_BASIC.LeftKey = 0;
+  //  COMP_MOV_BASIC.RightKey = 3;
+
+  //  COMP_MOV_JUMP.FloorLevel = 775;
+  //  COMP_MOV_JUMP.Gravity = 10;
+  //  COMP_MOV_JUMP.Force = 300;
+  //  COMP_MOV_JUMP.Key = 22;
 
 }

@@ -18,7 +18,7 @@ std::queue<std::string> Lexer::FindPhrases(std::string line)
 				phrase.clear();
 			}
 
-			if (character != '	')
+			if (character != '	' && character != ' ')
 			{
 				phrase.push_back(character);
 				phrasesQueue.push(phrase);
