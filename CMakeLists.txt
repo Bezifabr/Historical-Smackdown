@@ -1,28 +1,43 @@
 cmake_minimum_required (VERSION 2.8.12)
 
-project(Game)
-
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ext/sfml")
-
 # add c++11 standard to compiler
 add_compile_options(-std=c++11)
 
-include_directories(${SFML_DIR}/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+project(HS)
 
-file(GLOB_RECURSE HS_FILES
-	"${CMAKE_CURRENT_SOURCE_DIR}/include/*.h"
-	"${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+
+file(GLOB_RECURSE SRC_FILES
+    GLOB_CPP_PATTERNS src/*.cpp 
+    GLOB_H_PATTERNS include/*.h RECURSE_GROUP
 )
 
+set(EXE_NAME "HS")
+add_executable(${EXE_NAME} ${SRC_FILES})
 
-add_executable(game ${HS_FILES})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(${SFML_DIR}/include)
+
+
+if(WIN32 OR MINGW OR MSVC)
+add_subdirectory("${PROJECT_SOURCE_DIR}/ext/sfml")
 
 # link with SFML library dependiences
-target_link_libraries(game sfml-system sfml-window sfml-graphics sfml-audio)
+target_link_libraries(${EXE_NAME} sfml-system sfml-window sfml-graphics sfml-audio)
 
-target_include_directories(game PRIVATE
+target_include_directories(${EXE_NAME} PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/ext/sfml/include"
- #   "${CMAKE_CURRENT_SOURCE_DIR}/ext"
- #   "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
+endif(WIN32 OR MINGW OR MSVC)
+
+
+
+if(UNIX)
+
+#SFML
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
+find_package(SFML 2 REQUIRED network audio graphics window system)
+if(SFML_FOUND)
+    target_link_libraries(${EXE_NAME} sfml-system sfml-window sfml-graphics sfml-audio)
+endif()
+
+endif(UNIX)
