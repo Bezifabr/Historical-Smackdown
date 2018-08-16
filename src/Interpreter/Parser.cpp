@@ -1,6 +1,5 @@
-#include "Interpreter\Parser.h"
+#include "Interpreter/Parser.h"
 #include <iostream>
-#include <Windows.h>
 
 Parser::Parser()
 {
@@ -50,16 +49,10 @@ void Parser::CheckSyntax(std::string phrase)
 		else if (phrase == ")")
 		{
 
-			HANDLE hConsole;
-			hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-			SetConsoleTextAttribute(hConsole, 8);
-
 			std::cout << tempInstruction.name;
 			for (auto arg : tempInstruction.arguments)
 				std::cout << " " << arg;
 			std::cout << std::endl;
-
-			SetConsoleTextAttribute(hConsole, 7);
 
 			isInstructionFound = false;
 			GetObjectById(ownershipStack.top()).instructions.push(tempInstruction);
@@ -77,14 +70,7 @@ void Parser::ReturnResult()
 
 	if (errorOccured)
 	{
-		HANDLE hConsole;
-		hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
-		SetConsoleTextAttribute(hConsole, 12);
-
 		std::cout << errorMessage << std::endl;
-
-		SetConsoleTextAttribute(hConsole, 7);
 	}
 	else
 		std::cout << "[PARSER] Loading complete!" << std::endl;
@@ -105,15 +91,8 @@ void Parser::LookForObject(std::string phrase)
 		isNameFound = false;
 		isDefinitionFound = false;
 
-
-		HANDLE hConsole;
-		hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
-		SetConsoleTextAttribute(hConsole, 6);
-
 		std::cout << objects[objects.size() - 1].type << " " << objects[objects.size() - 1].id << std::endl;
 
-		SetConsoleTextAttribute(hConsole, 7);
 	}
 }
 

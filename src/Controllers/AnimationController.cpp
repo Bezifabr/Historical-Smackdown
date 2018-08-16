@@ -1,4 +1,4 @@
-#include "Controllers\AnimationController.h"
+#include "Controllers/AnimationController.h"
 
 Animation::Animation(sf::Time timeBetweenFrames)
 {

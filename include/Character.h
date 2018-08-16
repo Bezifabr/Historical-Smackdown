@@ -3,10 +3,10 @@
 
 #include <vector>
 #include <map>
-#include <SFML\Graphics.hpp>
-#include "Controllers\MovementController.h"
-#include "Controllers\AnimationController.h"
-#include "Controllers\FightingController.h"
+#include <SFML/Graphics.hpp>
+#include "Controllers/MovementController.h"
+#include "Controllers/AnimationController.h"
+#include "Controllers/FightingController.h"
 #include "CharacterState.h"
 
 class Character {

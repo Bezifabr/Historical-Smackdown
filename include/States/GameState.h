@@ -3,11 +3,11 @@
 
 #include "State.h"
 #include "Character.h"
-#include "Controllers\BasicMovement.h"
-#include "Controllers\JumpMovement.h"
-#include "Controllers\AnimationController.h"
-#include "Controllers\PunchFighting.h"
-#include "Interpreter\Interpreter.h"
+#include "Controllers/BasicMovement.h"
+#include "Controllers/JumpMovement.h"
+#include "Controllers/AnimationController.h"
+#include "Controllers/PunchFighting.h"
+#include "Interpreter/Interpreter.h"
 #include "HealthBar.h"
 
 class GameState : public State {

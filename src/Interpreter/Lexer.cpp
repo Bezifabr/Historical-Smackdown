@@ -1,4 +1,4 @@
-#include "Interpreter\Lexer.h"
+#include "Interpreter/Lexer.h"
 
 std::queue<std::string> Lexer::FindPhrases(std::string line)
 {

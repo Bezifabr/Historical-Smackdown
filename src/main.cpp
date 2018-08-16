@@ -1,5 +1,5 @@
 #include "Game.h"
-#include "States\IntroState.h"
+#include "States/IntroState.h"
 
 int main() {
 

@@ -1,5 +1,5 @@
-#include "States\LobbyState.h"
-#include "States\GameState.h"
+#include "States/LobbyState.h"
+#include "States/GameState.h"
 #include "StatesMachine.h"
 #include <iostream>
 

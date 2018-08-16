@@ -1,7 +1,7 @@
 #ifndef JUMP_MOVEMENT_H
 #define JUMP_MOVEMENT_H
 
-#include "Controllers\MovementController.h"
+#include "Controllers/MovementController.h"
 
 class JumpMovement : public MovementController {
 	float jumpingForce = 50;

@@ -1,5 +1,5 @@
-#include "States\GameState.h"
-#include "States\OverState.h"
+#include "States/GameState.h"
+#include "States/OverState.h"
 #include "StatesMachine.h"
 
 #include <iostream>

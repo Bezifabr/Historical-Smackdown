@@ -1,4 +1,4 @@
-#include "Controllers\FightingController.h"
+#include "Controllers/FightingController.h"
 
 void FightingController::SetKey(sf::Keyboard::Key key)
 {

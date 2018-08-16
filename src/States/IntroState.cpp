@@ -1,5 +1,5 @@
-#include "States\IntroState.h"
-#include "States\MenuState.h"
+#include "States/IntroState.h"
+#include "States/MenuState.h"
 #include "StatesMachine.h"
 #include <iostream>
 

@@ -1,7 +1,7 @@
 #ifndef BASIC_MOVEMENT_H
 #define BASIC_MOVEMENT_H
 
-#include "Controllers\MovementController.h"
+#include "Controllers/MovementController.h"
 
 class BasicMovement : public MovementController {
 	float movementSpeed = 0;

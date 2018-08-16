@@ -1,4 +1,4 @@
-#include "Controllers\JumpMovement.h"
+#include "Controllers/JumpMovement.h"
 #include "Character.h"
 
 void JumpMovement::SetJumpingForce(float jumpingForce)

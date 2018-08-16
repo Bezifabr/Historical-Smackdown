@@ -1,6 +1,6 @@
-#include "States\OverState.h"
+#include "States/OverState.h"
 #include "StatesMachine.h"
-#include "States\MenuState.h"
+#include "States/MenuState.h"
 
 void OverState::HandleEvent(sf::Event event)
 {
