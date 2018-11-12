@@ -6,25 +6,25 @@
 using std::cout;
 using std::endl;
 
-void LobbyState::OnLoad()
+void LobbyState::OnEnter()
 {
 	cout << "Lobby loaded" << endl;
 }
 
-void LobbyState::OnUnload()
+void LobbyState::OnLeave()
 {
 	cout << "Lobby unloaded" << endl;
 }
 
+void LobbyState::OnHandleEvent()
+{
+}
+
+void LobbyState::OnDraw()
+{
+}
+
 void LobbyState::OnUpdate()
 {
-	statesMachine->Change(new GameState);
-}
-
-void LobbyState::HandleEvent(sf::Event event)
-{
-}
-
-void LobbyState::Render(sf::RenderTarget & renderTarget)
-{
+	transition->Switch(std::unique_ptr<State>(new GameState));
 }

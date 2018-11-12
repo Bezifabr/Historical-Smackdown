@@ -9,6 +9,7 @@
 #include "Controllers/PunchFighting.h"
 #include "Interpreter/Interpreter.h"
 #include "HealthBar.h"
+#include <SFML/Audio.hpp>
 
 class GameState : public State {
 	sf::Texture bgrTexture;
@@ -29,16 +30,17 @@ class GameState : public State {
 
 	Character player1;
 	Character player2;
-public:
 
-	virtual void HandleEvent(sf::Event event);
-	virtual void Render(sf::RenderTarget& renderTarget);
-
+	sf::SoundBuffer punchSound;
 private:
 
-	virtual void OnUpdate();
-	virtual void OnLoad();
-	virtual void OnUnload();
+	virtual void OnHandleEvent() override;
+	virtual void OnDraw() override;
+
+	virtual void OnUpdate() override;
+
+	virtual void OnEnter() override;
+	virtual void OnLeave() override;
 };
 
 #endif // !GAME_STATE_H

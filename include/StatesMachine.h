@@ -1,16 +1,22 @@
 #ifndef STATE_MACHINE_H
 #define STATE_MACHINE_H
 
-#include "State.h"
+#include <memory>
+#include <stack>
+#include "StateTransition.h"
+#include "StateAccessor.h"
+#include <SFML/Graphics/RenderWindow.hpp>
 
-class StatesMachine {
-	State* currentState = nullptr;
+class StatesMachine : public StateTransition, public StateAccessor {
+	std::stack<std::shared_ptr<State>> states;
+	std::shared_ptr<sf::RenderWindow> renderWindow;
 public:
-	~StatesMachine();
+	void ConnectWithRenderWindow(std::shared_ptr<sf::RenderWindow> renderWindow);
 
-	void Change(State* state);
-	State* GetCurrentState();
-	void Update(sf::Time deltaTime);
+	virtual void Push(std::shared_ptr<State> state);
+	virtual void Pop();
+	virtual void Switch(std::shared_ptr<State> state);
+	virtual std::shared_ptr<State> Peek();
 };
 
 #endif // !STATE_MACHINE_H

@@ -2,24 +2,25 @@
 #include "StatesMachine.h"
 #include "States/MenuState.h"
 
-void OverState::HandleEvent(sf::Event event)
-{
-	if (event.type == sf::Event::KeyPressed)
-		statesMachine->Change(new MenuState);
-}
-
-void OverState::Render(sf::RenderTarget & renderTarget)
-{
-	renderTarget.draw(background);
-	renderTarget.draw(winner);
-	renderTarget.draw(backToMenuTip);
-}
 
 void OverState::OnUpdate()
 {
 }
 
-void OverState::OnLoad()
+void OverState::OnDraw()
+{
+	renderWindow->draw(background);
+	renderWindow->draw(winner);
+	renderWindow->draw(backToMenuTip);
+}
+
+void OverState::OnHandleEvent()
+{
+	if (event.type == sf::Event::KeyPressed)
+		transition->Switch(std::unique_ptr<State>(new MenuState()));
+}
+
+void OverState::OnEnter()
 {
 	backgroundTexture.loadFromFile("resources/textures/screens/EmptyScreen.png");
 	background.setTexture(backgroundTexture);
@@ -33,10 +34,8 @@ void OverState::OnLoad()
 
 	backToMenuTip.setPosition(100, 700);
 	backToMenuTip.setString("Press any key to back to menu");
-
-
 }
 
-void OverState::OnUnload()
+void OverState::OnLeave()
 {
 }

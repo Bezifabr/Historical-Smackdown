@@ -14,15 +14,14 @@ class OverState : public State {
 	std::string winnersName;
 public:
 	OverState(const std::string& winnersName) : winnersName(winnersName) {}
-
-	virtual void HandleEvent(sf::Event event);
-	virtual void Render(sf::RenderTarget& renderTarget);
-
 private:
 
-	virtual void OnUpdate();
-	virtual void OnLoad();
-	virtual void OnUnload();
+	virtual void OnUpdate() override;
+	virtual void OnDraw() override;
+	virtual void OnHandleEvent() override;
+
+	virtual void OnEnter() override;
+	virtual void OnLeave() override;
 };
 
 #endif // !OVER_STATE_H

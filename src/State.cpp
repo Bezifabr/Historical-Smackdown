@@ -1,21 +1,34 @@
 #include "State.h"
+#include <stdexcept>
 
-void State::Load(StatesMachine * statesMachine)
+void State::ConnectWithStateTransition(StateTransition* transition)
 {
-	this->statesMachine = statesMachine;
-	OnLoad();
+	this->transition = transition;
+}
+
+void State::ConnectWithRenderWindow(std::shared_ptr<sf::RenderWindow> renderWindow)
+{
+	this->renderWindow = renderWindow;
+}
+
+void State::HandleEvent(sf::Event event)
+{
+	this->event = event;
+	OnHandleEvent();
 }
 
 void State::Update(sf::Time deltaTime)
 {
+	if (!transition) throw std::runtime_error("Cannot find StateTransition object");
+	if (!renderWindow) throw std::runtime_error("Cannot find sf::RenderWindow object");
+
 	this->deltaTime = deltaTime;
 	OnUpdate();
 }
 
-void State::Unload()
+void State::Draw()
 {
-	statesMachine = nullptr;
-	OnUnload();
+	OnDraw();
 }
 
 bool State::IsGameFinished()

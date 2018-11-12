@@ -1,41 +1,44 @@
 #include "Game.h"
+#include "States/IntroState.h"
 
-void Game::CreateWindow(const std::string & title)
-{
-	window.create(sf::VideoMode::getDesktopMode(), title);
-	window.setVerticalSyncEnabled(true);
-	window.setKeyRepeatEnabled(false);
-}
+Game::Game(){
 
-void Game::Initialize(State * initState)
-{
-	statesMachine.Change(initState);
+	renderWindow = std::make_shared<sf::RenderWindow>(sf::VideoMode::getDesktopMode(), "Historical Smackdown");
+	renderWindow->setFramerateLimit(60);
+	renderWindow->setVerticalSyncEnabled(true);
+	renderWindow->setKeyRepeatEnabled(false);
+
+	statesMachine.ConnectWithRenderWindow(renderWindow);
+	statesMachine.Push(std::unique_ptr<State>(new IntroState));
+	updater.ConnectWithAccessor(statesMachine);
+
+
 }
 
 void Game::RunLoop()
 {
+	sf::Event event;
 	sf::Clock clock;
-	while (window.isOpen())
-	{
-		sf::Time deltaTime = clock.restart();
+	sf::Time deltaTime;
 
-		sf::Event event;
-		while (window.pollEvent(event))
+	while (renderWindow->isOpen())
+	{
+		if (!updater.IsRunning())
+			renderWindow->close();
+
+		while (renderWindow->pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
-				window.close();
-
-			statesMachine.GetCurrentState()->HandleEvent(event);
+				renderWindow->close();
+			updater.HandleEvent(event);
 		}
 
-		statesMachine.Update(deltaTime);
-		window.clear(sf::Color::White);
-		statesMachine.GetCurrentState()->Render(window);
-		window.display();
+		deltaTime = clock.getElapsedTime();
+		updater.Update(deltaTime);
+		clock.restart();
 
-
-		if (statesMachine.GetCurrentState()->IsGameFinished())
-			window.close();
-
+		renderWindow->clear();
+		updater.Draw();
+		renderWindow->display();
 	}
 }

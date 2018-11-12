@@ -6,28 +6,16 @@
 using std::cout;
 using std::endl;
 
-void IntroState::OnLoad()
+void IntroState::OnEnter()
 {
-	cout << "Intro loaded" << endl;
 }
 
-void IntroState::OnUnload()
+void IntroState::OnLeave()
 {
-	cout << "Intro unloaded" << endl;
 }
 
 void IntroState::OnUpdate()
 {
 	cout << "Intro updated" << endl;
-	statesMachine->Change(new MenuState);
-}
-
-void IntroState::HandleEvent(sf::Event event)
-{
-	// nothing
-}
-
-void IntroState::Render(sf::RenderTarget & renderTarget)
-{
-	// nothing
+	transition->Switch(std::unique_ptr<State>(new MenuState));
 }

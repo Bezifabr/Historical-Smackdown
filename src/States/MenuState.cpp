@@ -6,7 +6,8 @@
 using std::cout;
 using std::endl;
 
-void MenuState::OnLoad()
+
+void MenuState::OnEnter()
 {
 	cout << "Menu loaded" << endl;
 
@@ -16,10 +17,9 @@ void MenuState::OnLoad()
 	menu.AddOption("Play");
 	menu.AddOption("Stats");
 	menu.AddOption("Exit");
-
 }
 
-void MenuState::OnUnload()
+void MenuState::OnLeave()
 {
 	menu.ClearOptions();
 	cout << "Menu unloaded" << endl;
@@ -28,7 +28,6 @@ void MenuState::OnUnload()
 void MenuState::OnUpdate()
 {
 	std::string option = menu.GetCurrentOption();
-
 	if (option == "Play")
 		sprite.setTexture(playTexture);
 	if (option == "Stats")
@@ -37,7 +36,12 @@ void MenuState::OnUpdate()
 		sprite.setTexture(exitTexture);
 }
 
-void MenuState::HandleEvent(sf::Event event)
+void MenuState::OnDraw()
+{
+	renderWindow->draw(sprite);
+}
+
+void MenuState::OnHandleEvent()
 {
 	if (event.type == sf::Event::KeyPressed)
 	{
@@ -55,17 +59,13 @@ void MenuState::HandleEvent(sf::Event event)
 	}
 }
 
-void MenuState::Render(sf::RenderTarget & renderTarget)
-{
-	renderTarget.draw(sprite);
-}
 
 void MenuState::ProceedMenuOption()
 {
 	std::string option = menu.GetCurrentOption();
 
 	if (option == "Play")
-		statesMachine->Change(new LobbyState);
+		transition->Switch(std::unique_ptr<State>(new LobbyState));
 	if (option == "Stats")
 	{
 		// TODO: Add stats state

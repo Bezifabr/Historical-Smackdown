@@ -2,26 +2,37 @@
 #define STATE_H
 
 #include <SFML/Graphics.hpp>
+#include <memory>
 
-class StatesMachine;
+class StateTransition;
 class State {
 public:
-	virtual void Load(StatesMachine* statesMachine);
-	virtual void Update(sf::Time deltaTime);
-	virtual void Unload();
-
-	virtual void HandleEvent(sf::Event event) = 0;
-	virtual void Render(sf::RenderTarget& renderTarget) = 0;
+    void ConnectWithStateTransition(StateTransition* transition);
+	void ConnectWithRenderWindow(std::shared_ptr<sf::RenderWindow> renderWindow);
 
 	bool IsGameFinished();
-protected:
-	virtual void OnUpdate() = 0;
-	virtual void OnLoad() = 0;
-	virtual void OnUnload() = 0;
 
-	bool isGameFinished = false; 
-	StatesMachine* statesMachine;
+    virtual void OnEnter() = 0;
+    virtual void OnLeave() = 0;
+    virtual void OnShow() {}
+    virtual void OnHide() {}
+
+	void HandleEvent(sf::Event event);
+	void Update(sf::Time deltaTime);
+	void Draw();
+
+protected:
+    StateTransition* transition;
+	std::shared_ptr<sf::RenderWindow> renderWindow;
+
+	bool isGameFinished = false;
+
 	sf::Time deltaTime;
+	sf::Event event;
+
+	virtual void OnHandleEvent() {}
+    virtual void OnUpdate() = 0;
+	virtual void OnDraw() {}
 };
 
 #endif // !STATE_H

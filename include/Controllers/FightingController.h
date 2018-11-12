@@ -29,7 +29,7 @@ public:
 	void SetAttackTime(sf::Time time);
 	sf::Time GetAttackTime();
 
-	void LoadSound(const std::string& soundBufferSource);
+	void LoadSound(const sf::SoundBuffer& soundBufferSource);
 	void PlaySound();
 
 	virtual void PerformAttack(Character* attacker, Character* target) = 0;

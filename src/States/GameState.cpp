@@ -7,10 +7,9 @@
 using std::cout;
 using std::endl;
 
-void GameState::OnLoad()
+
+void GameState::OnEnter()
 {
-	interpreter.LoadScriptFromFile("resources/scripts/Characters.hss");
-	interpreter.ShowLoadedWords();
 
 	bgrTexture.loadFromFile("resources/textures/arenas/abbacy.png");
 	background.setTexture(bgrTexture);
@@ -40,18 +39,19 @@ void GameState::OnLoad()
 	jumpMovement2.SetJumpingForce(300);
 	jumpMovement2.SetJumpKey(sf::Keyboard::Up);
 
+	punchSound.loadFromFile("resources/sounds/punch.wav");
 	punchFighting.SetDamage(10);
-	punchFighting.SetHitBox(sf::FloatRect(45,35,73,65));
+	punchFighting.SetHitBox(sf::FloatRect(45, 35, 73, 65));
 	punchFighting.SetKey(sf::Keyboard::G);
 	punchFighting.SetAttackState(CharStateID::PUNCH);
 	punchFighting.SetAttackTime(sf::seconds(.25));
-	punchFighting.LoadSound("resources/sounds/punch.wav");
+	punchFighting.LoadSound(punchSound);
 	punchFighting2.SetDamage(10);
-	punchFighting2.SetHitBox(sf::FloatRect(100,70,40,40));
+	punchFighting2.SetHitBox(sf::FloatRect(100, 70, 40, 40));
 	punchFighting2.SetKey(sf::Keyboard::L);
 	punchFighting2.SetAttackState(CharStateID::PUNCH);
 	punchFighting2.SetAttackTime(sf::seconds(.25));
-	punchFighting2.LoadSound("resources/sounds/punch.wav");
+	punchFighting2.LoadSound(punchSound);
 
 	Animation stand;
 	stand.AddFrame(sf::IntRect(656, 0, 164, 164));
@@ -118,12 +118,13 @@ void GameState::OnLoad()
 	healthBar2.SetPosition(700, 50);
 
 	player1.SetCharacterState(CharStateID::IDLE);
+
 	player2.SetCharacterState(CharStateID::IDLE);
 
 	cout << "Game loaded" << endl;
 }
 
-void GameState::OnUnload()
+void GameState::OnLeave()
 {
 	cout << "Game unloaded" << endl;
 }
@@ -145,14 +146,14 @@ void GameState::OnUpdate()
 	player2.EndAttack();
 
 	if (player2.GetHealth() <= 0)
-		statesMachine->Change(new OverState(player1.GetName()));
+		transition->Switch(std::unique_ptr<State>(new OverState(player1.GetName())));
 	else if (player1.GetHealth() <= 0)
-		statesMachine->Change(new OverState(player2.GetName()));
+		transition->Switch(std::unique_ptr<State>(new OverState(player2.GetName())));
 
 
 }
 
-void GameState::HandleEvent(sf::Event event)
+void GameState::OnHandleEvent()
 {
 	if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
 		isGameFinished = true;
@@ -161,12 +162,12 @@ void GameState::HandleEvent(sf::Event event)
 	player2.PerformAttack(event, &player1);
 }
 
-void GameState::Render(sf::RenderTarget & renderTarget)
+void GameState::OnDraw()
 {
-	renderTarget.draw(background);
-	player1.Render(renderTarget);
-	player2.Render(renderTarget);
+	renderWindow->draw(background);
+	player1.Render(*renderWindow);
+	player2.Render(*renderWindow);
 
-	healthBar1.Draw(renderTarget);
-	healthBar2.Draw(renderTarget);
+	healthBar1.Draw(*renderWindow);
+	healthBar2.Draw(*renderWindow);
 }

@@ -4,16 +4,15 @@
 #include "State.h"
 
 class LobbyState : public State {
-public:
-
-	virtual void HandleEvent(sf::Event event);
-	virtual void Render(sf::RenderTarget& renderTarget);
-
 private:
 
-	virtual void OnUpdate();
-	virtual void OnLoad();
-	virtual void OnUnload();
+	virtual void OnHandleEvent() override;
+	virtual void OnDraw() override;
+
+	virtual void OnUpdate() override;
+
+	virtual void OnEnter() override;
+	virtual void OnLeave() override;
 };
 
 #endif // !LOBBY_STATE_H

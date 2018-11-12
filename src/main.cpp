@@ -4,9 +4,6 @@
 int main() {
 
 	Game game;
-	game.CreateWindow("Historical Smackdown");
-	game.Initialize(new IntroState);
-
 	game.RunLoop();
 
     

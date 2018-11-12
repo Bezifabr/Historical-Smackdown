@@ -2,16 +2,17 @@
 #define GAME_H
 
 #include "StatesMachine.h"
+#include "StateUpdater.h"
 #include <SFML/Graphics.hpp>
 #include <string>
 
 
 class Game {
 	StatesMachine statesMachine;
-	sf::RenderWindow window;
+	StateUpdater updater;
+	std::shared_ptr<sf::RenderWindow> renderWindow;
 public:
-	void CreateWindow(const std::string& title);
-	void Initialize(State* initState);
+	Game();
 
 	void RunLoop();
 

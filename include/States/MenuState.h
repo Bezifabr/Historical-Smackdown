@@ -5,23 +5,23 @@
 #include "State.h"
 
 class MenuState : public State {
+
 	sf::Texture playTexture;
 	sf::Texture statsTexture;
 	sf::Texture exitTexture;
 	sf::Sprite sprite;
 
 	Menu menu;
-public:
-
-	virtual void HandleEvent(sf::Event event);
-	virtual void Render(sf::RenderTarget& renderTarget);
 
 private:
 	void ProceedMenuOption();
 
-	virtual void OnUpdate();
-	virtual void OnLoad();
-	virtual void OnUnload();
+	virtual void OnHandleEvent() override;
+
+	virtual void OnUpdate() override;
+	virtual void OnDraw() override;
+	virtual void OnEnter() override;
+	virtual void OnLeave() override;
 };
 
 #endif // !MENU_STATE_H

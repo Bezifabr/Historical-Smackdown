@@ -40,9 +40,8 @@ sf::Time FightingController::GetAttackTime()
 	return attackTime;
 }
 
-void FightingController::LoadSound(const std::string & soundBufferSource)
+void FightingController::LoadSound(const sf::SoundBuffer & soundBuffer)
 {
-	soundBuffer.loadFromFile(soundBufferSource);
 	sound.setBuffer(soundBuffer);
 }
 
