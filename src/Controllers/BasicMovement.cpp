@@ -21,12 +21,12 @@ void BasicMovement::PerformMovement(Character * movingCharacter, sf::Time deltaT
 	sf::Vector2f position = movingCharacter->GetPosition();
 	float displacement = movementSpeed * 0.01f * deltaTime.asMilliseconds();
 
-	if (sf::Keyboard::isKeyPressed(moveLeftKey) == true)
+	if (sf::Keyboard::isKeyPressed(moveLeftKey) == true && position.x > 0)
 	{
 		position.x -= displacement;
 		movingCharacter->SetCharacterState(CharStateID::WALK);
 	}
-	else if (sf::Keyboard::isKeyPressed(moveRightKey) == true)
+	else if (sf::Keyboard::isKeyPressed(moveRightKey) == true && position.x < 1000)
 	{
 		position.x += displacement;
 		movingCharacter->SetCharacterState(CharStateID::WALK);
