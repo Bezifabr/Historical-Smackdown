@@ -5,6 +5,19 @@ add_compile_options(-std=c++11)
 
 project(HS)
 
+set(BINDIR ${PROJECT_BINARY_DIR})
+set(SRCDIR ${PROJECT_SOURCE_DIR})
+
+set(GAME_TITLE "Historical Smackdown")
+set(GAME_VERSION_MAJOR 0)
+set(GAME_VERSION_MINOR 1)
+set(GAME_VERSION_RELEASE pre-alpha)
+
+configure_file(
+	"${SRCDIR}/config.h.in"
+	"${BINDIR}/config.h"
+)
+include_directories("${BINDIR}")
 
 file(GLOB_RECURSE SRC_FILES
     GLOB_CPP_PATTERNS src/*.cpp 
