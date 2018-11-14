@@ -1,9 +1,12 @@
 #include "Game.h"
 #include "States/IntroState.h"
+#include "config.h"
 
 Game::Game(){
 
-	renderWindow = std::make_shared<sf::RenderWindow>(sf::VideoMode::getDesktopMode(), "Historical Smackdown");
+	std::string title = GAME_TITLE + " " + GAME_VERSION_MAJOR + "." + GAME_VERSION_MINOR + "-" + GAME_VERSION_RELEASE;
+
+	renderWindow = std::make_shared<sf::RenderWindow>(sf::VideoMode::getDesktopMode(), title);
 	renderWindow->setFramerateLimit(60);
 	renderWindow->setVerticalSyncEnabled(true);
 	renderWindow->setKeyRepeatEnabled(false);
