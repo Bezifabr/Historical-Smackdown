@@ -13,19 +13,21 @@ IF EXIST "build/HS.sln" (
     cmake ..set 
     set firstTime="f"
 )
+mkdir debug
 
-
-MSBuild HS.sln
+MSBuild.exe HS.sln
 
 cd debug
 
 IF %firstTime%=="t" (
     xcopy /s "..\ext\sfml\lib\Debug\*.dll"
-    xcopy /s "..\ext\sfml\extlibs\bin\x86\openal32.dll"
+    xcopy /s "..\..\ext\sfml\extlibs\bin\x86\openal32.dll"
     mkdir resources
     cd resources
     xcopy /s "..\..\..\resources\*.*"
     cd ..
+    xcopy /s "ext\sfml\lib\Debug\*.dll"
+    xcopy /s "..\ext\sfml\extlibs\bin\x86\openal32.dll"
 )
 
 HS.exe
