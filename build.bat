@@ -25,9 +25,14 @@ IF %firstTime%=="t" (
     mkdir resources
     cd resources
     xcopy /s "..\..\..\resources\*.*"
-    cd ..
+    cd ../..
     xcopy /s "ext\sfml\lib\Debug\*.dll"
     xcopy /s "..\ext\sfml\extlibs\bin\x86\openal32.dll"
+    mkdir resources
+    cd resources
+    xcopy /s "..\..\resources\*.*"
+    cd ../debug
+
 )
 
 HS.exe
