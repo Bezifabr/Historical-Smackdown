@@ -12,7 +12,6 @@
 #include <SFML/Audio.hpp>
 
 class GameState : public State {
-	sf::Texture bgrTexture;
 	sf::Sprite background;
 
 	Interpreter interpreter;

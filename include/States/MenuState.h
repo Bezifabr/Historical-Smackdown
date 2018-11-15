@@ -6,9 +6,6 @@
 
 class MenuState : public State {
 
-	sf::Texture playTexture;
-	sf::Texture statsTexture;
-	sf::Texture exitTexture;
 	sf::Sprite sprite;
 
 	Menu menu;

@@ -4,7 +4,6 @@
 #include "State.h"
 
 class OverState : public State {
-	sf::Texture backgroundTexture;
 	sf::Sprite background;
 
 	sf::Font font;

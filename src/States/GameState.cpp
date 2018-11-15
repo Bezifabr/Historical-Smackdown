@@ -11,14 +11,14 @@ using std::endl;
 void GameState::OnEnter()
 {
 	cout << "Loading textures" << endl;
-	bgrTexture.loadFromFile("resources/textures/arenas/abbacy.png");
+	textures.Load("background", "arenas/abbacy");
 	player1.LoadTexture("resources/textures/characters/HilterSprite.png");
 	player2.LoadTexture("resources/textures/characters/SpalinSprite.png");	
 	healthBar1.LoadTextures("resources/textures/GUI/Health_bar.png", "resources/textures/GUI/Health_bar_empty.png");
 	healthBar2.LoadTextures("resources/textures/GUI/Health_bar.png", "resources/textures/GUI/Health_bar_empty.png");
 	cout << "Loading textures done" << endl;
 
-	background.setTexture(bgrTexture);
+	background.setTexture(textures.GetTexture("background"));
 
 	cout << "Setting players" << endl;
 	player1.SetPosition(50, 775);

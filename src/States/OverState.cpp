@@ -22,8 +22,8 @@ void OverState::OnHandleEvent()
 
 void OverState::OnEnter()
 {
-	backgroundTexture.loadFromFile("resources/textures/screens/EmptyScreen.png");
-	background.setTexture(backgroundTexture);
+	textures.Load("background", "screens/EmptyScreen");
+	background.setTexture(textures.GetTexture("background"));
 
 	font.loadFromFile("resources/fonts/font.ttf");
 	winner.setFont(font);

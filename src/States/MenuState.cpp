@@ -11,9 +11,9 @@ void MenuState::OnEnter()
 {
 	cout << "Menu loaded" << endl;
 
-	playTexture.loadFromFile("resources/textures/menu/play.png");
-	statsTexture.loadFromFile("resources/textures/menu/stats.png");
-	exitTexture.loadFromFile("resources/textures/menu/exit.png");
+	textures.Load("play", "menu/play");
+	textures.Load("stats", "menu/stats");
+	textures.Load("exit", "menu/exit");
 	menu.AddOption("Play");
 	menu.AddOption("Stats");
 	menu.AddOption("Exit");
@@ -29,11 +29,11 @@ void MenuState::OnUpdate()
 {
 	std::string option = menu.GetCurrentOption();
 	if (option == "Play")
-		sprite.setTexture(playTexture);
+		sprite.setTexture(textures.GetTexture("play"));
 	if (option == "Stats")
-		sprite.setTexture(statsTexture);
+		sprite.setTexture(textures.GetTexture("stats"));
 	if (option == "Exit")
-		sprite.setTexture(exitTexture);
+		sprite.setTexture(textures.GetTexture("exit"));
 }
 
 void MenuState::OnDraw()
