@@ -20,17 +20,6 @@ void GameState::OnEnter()
 
 	background.setTexture(textures.GetTexture("background"));
 
-	cout << "Setting players" << endl;
-	player1.SetPosition(50, 775);
-	player2.SetPosition(775, 775);
-	player1.SetName("Mr. Hilter");
-	player2.SetName("Cde. Spalin");
-	player1.SetHealth(100);
-	player2.SetHealth(100);
-	player1.SetCharacterState(CharStateID::IDLE);
-	player2.SetCharacterState(CharStateID::IDLE);
-	cout << "Setting players done" << endl;
-
 	cout << "Setting players components" << endl;
 	cout << "* basic movement" << endl;
 	basicMovement.SetMovementSpeed(30);
@@ -136,6 +125,21 @@ void GameState::OnEnter()
 
 	healthBar1.SetPosition(50, 50);
 	healthBar2.SetPosition(700, 50);
+	
+	cout << "Setting players" << endl;
+	cout << "* Position" << endl;
+	player1.SetPosition(50, 775);
+	player2.SetPosition(775, 775);
+	cout << "* Names" << endl;
+	player1.SetName("Mr. Hilter");
+	player2.SetName("Cde. Spalin");
+	cout << "* Health" << endl;
+	player1.SetHealth(100);
+	player2.SetHealth(100);
+	cout << "* Animations" << endl;
+	player1.SetCharacterState(CharStateID::IDLE);
+	player2.SetCharacterState(CharStateID::IDLE);
+	cout << "Setting players done" << endl;
 
 
 	cout << "Game loaded" << endl;
