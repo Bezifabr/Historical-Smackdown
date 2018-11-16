@@ -43,7 +43,7 @@ void AnimationController::SetAnimation(const Animation & animation)
 	this->currentAnimation = &animation;
 }
 
-void AnimationController::PerformAnimation(sf::Sprite & sprite, sf::Time deltaTime)
+sf::IntRect AnimationController::PerformAnimation(sf::Time deltaTime)
 {
 	if (currentAnimation)
 	{
@@ -58,7 +58,7 @@ void AnimationController::PerformAnimation(sf::Sprite & sprite, sf::Time deltaTi
 				currentFrame = 0;
 		}
 
-		sprite.setTextureRect(currentAnimation->GetFrame(currentFrame));
+		return currentAnimation->GetFrame(currentFrame);
 
 	}
 }

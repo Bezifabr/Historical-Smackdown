@@ -30,7 +30,7 @@ public:
 	AnimationController(sf::Time currentTime = sf::seconds(0), std::size_t currentFrame = 0);
 
 	void SetAnimation(const Animation& animation);
-	void PerformAnimation(sf::Sprite& sprite, sf::Time deltaTime);
+	sf::IntRect PerformAnimation(sf::Time deltaTime);
 };
 
 

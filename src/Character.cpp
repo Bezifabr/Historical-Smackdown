@@ -62,7 +62,8 @@ void Character::PerformMovement(sf::Time deltaTime)
 void Character::PerformAnimation(sf::Time deltaTime)
 {
 	animationController.SetAnimation(animations[charStateID]);
-	animationController.PerformAnimation(sprite, deltaTime);
+	auto textureRect = animationController.PerformAnimation(deltaTime);
+	sprite.setTextureRect(textureRect);
 }
 
 void Character::LoadTexture(const std::string & filename)
