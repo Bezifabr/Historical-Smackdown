@@ -6,13 +6,11 @@
 #include <SFML/Graphics/Texture.hpp>
 
 class HealthBar {
-	sf::Texture fullTexture;
-	sf::Texture emptyTexture;
 	sf::Sprite full;
 	sf::Sprite empty;
 public:
 
-	void LoadTextures(const std::string& full, const std::string& empty);
+	void LoadTextures(const sf::Texture& fullBar, const sf::Texture& emptyBar);
 	void Update(int health);
 	void Draw(sf::RenderTarget& renderTarget);
 	void SetPosition(float x, float y);

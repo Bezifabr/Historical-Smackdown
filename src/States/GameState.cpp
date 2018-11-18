@@ -12,10 +12,10 @@ void GameState::OnEnter()
 {
 	cout << "Loading textures" << endl;
 	textures.Load("background", "arenas/abbacy");
+	textures.Load("hb_full", "GUI/Health_bar");
+	textures.Load("hb_empty", "GUI/Health_bar_empty");
 	player1.LoadTexture("resources/textures/characters/HilterSprite.png");
 	player2.LoadTexture("resources/textures/characters/SpalinSprite.png");	
-	healthBar1.LoadTextures("resources/textures/GUI/Health_bar.png", "resources/textures/GUI/Health_bar_empty.png");
-	healthBar2.LoadTextures("resources/textures/GUI/Health_bar.png", "resources/textures/GUI/Health_bar_empty.png");
 	cout << "Loading textures done" << endl;
 
 	background.setTexture(textures.GetTexture("background"));
@@ -125,6 +125,8 @@ void GameState::OnEnter()
 
 	healthBar1.SetPosition(50, 50);
 	healthBar2.SetPosition(700, 50);
+	healthBar1.LoadTextures(textures.GetTexture("hb_full"), textures.GetTexture("hb_empty"));
+	healthBar2.LoadTextures(textures.GetTexture("hb_full"), textures.GetTexture("hb_empty"));
 	
 	cout << "Setting players" << endl;
 	cout << "* Position" << endl;

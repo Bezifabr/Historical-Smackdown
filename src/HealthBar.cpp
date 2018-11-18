@@ -1,12 +1,10 @@
 #include "HealthBar.h"
 
 
-void HealthBar::LoadTextures(const std::string & full, const std::string & empty)
+void HealthBar::LoadTextures(const sf::Texture& fullBar, const sf::Texture& emptyBar)
 {
-	fullTexture.loadFromFile(full);
-	emptyTexture.loadFromFile(empty);
-	this->full.setTexture(fullTexture);
-	this->empty.setTexture(emptyTexture);
+	this->full.setTexture(fullBar);
+	this->empty.setTexture(emptyBar);
 }
 
 void HealthBar::Update(int health)
