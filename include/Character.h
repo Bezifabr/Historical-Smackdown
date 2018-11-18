@@ -12,7 +12,6 @@
 class Character {
 	std::string name;
 	sf::Sprite sprite;
-	sf::Texture texture;
 	int health;
 
 	AnimationController animationController;
@@ -39,7 +38,7 @@ public:
 	void PerformMovement(sf::Time deltaTime);
 	void PerformAnimation(sf::Time deltaTime);
 	
-	void LoadTexture(const std::string& filename);
+	void LoadTexture(const sf::Texture& texture);
 	void Render(sf::RenderTarget& renderTarget);
 
 	void SetName(const std::string& name);

@@ -66,9 +66,8 @@ void Character::PerformAnimation(sf::Time deltaTime)
 	sprite.setTextureRect(textureRect);
 }
 
-void Character::LoadTexture(const std::string & filename)
+void Character::LoadTexture(const sf::Texture& texture)
 {
-	texture.loadFromFile(filename);
 	sprite.setTexture(texture);
 }
 

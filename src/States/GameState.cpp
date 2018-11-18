@@ -14,8 +14,8 @@ void GameState::OnEnter()
 	textures.Load("background", "arenas/abbacy");
 	textures.Load("hb_full", "GUI/Health_bar");
 	textures.Load("hb_empty", "GUI/Health_bar_empty");
-	player1.LoadTexture("resources/textures/characters/HilterSprite.png");
-	player2.LoadTexture("resources/textures/characters/SpalinSprite.png");	
+	textures.Load("ch_hilter", "characters/HilterSprite");
+	textures.Load("ch_spalin", "characters/SpalinSprite");	
 	cout << "Loading textures done" << endl;
 
 	background.setTexture(textures.GetTexture("background"));
@@ -141,6 +141,9 @@ void GameState::OnEnter()
 	cout << "* Animations" << endl;
 	player1.SetCharacterState(CharStateID::IDLE);
 	player2.SetCharacterState(CharStateID::IDLE);
+	cout << "* Textures" << endl;
+	player1.LoadTexture(textures.GetTexture("ch_hilter"));
+	player2.LoadTexture(textures.GetTexture("ch_spalin"));
 	cout << "Setting players done" << endl;
 
 
