@@ -1,5 +1,6 @@
 #include "Interpreter/Parser.h"
 #include <iostream>
+#include <boost/algorithm/string.hpp>
 
 Parser::Parser()
 {
@@ -110,16 +111,14 @@ void Parser::LookForInstruction(std::string phrase)
 void Parser::LookForType(std::string phrase)
 {
 	isTypeFound = true;
-	if (phrase == "CHARACTER" || phrase == "character" || phrase == "Character")
+	if (boost::iequals(phrase, "Character"))
 		type = "CHARACTER";
-	else if (phrase == "ANIMATION" || phrase == "animation" || phrase == "Animation")
+	else if (boost::iequals(phrase, "Animation"))
 		type = "ANIMATION";
-	else if (phrase == "COMPONENT" || phrase == "component" || phrase == "Component")
+	else if (boost::iequals(phrase, "Component"))
 		type = "COMPONENT";
 	else
-	{
 		isTypeFound = false;
-	}
 }
 
 void Parser::LookForName(std::string phrase)
