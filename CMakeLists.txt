@@ -13,6 +13,7 @@ set(GAME_VERSION_MAJOR 0)
 set(GAME_VERSION_MINOR 1)
 set(GAME_VERSION_RELEASE pre-alpha)
 
+
 configure_file(
 	"${SRCDIR}/config.h.in"
 	"${BINDIR}/config.h"
@@ -39,6 +40,63 @@ target_link_libraries(${EXE_NAME} sfml-system sfml-window sfml-graphics sfml-aud
 
 target_include_directories(${EXE_NAME} PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/ext/sfml/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/algorithm/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/config/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/function/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/iterator/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/mpl/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/range/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/preprocessor/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/type_traits/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/concept_check/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/utility/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/assert/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/core/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/static_assert/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/type_index/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/detail/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/bind/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/throw_exception/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/integer/include"
+)
+target_include_directories(${EXE_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/ext/boost/container_hash/include"
 )
 endif(WIN32 OR MINGW OR MSVC)
 

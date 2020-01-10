@@ -1,3 +1,60 @@
 [submodule "ext/sfml"]
 	path = ext/sfml
 	url = https://github.com/SFML/SFML.git
+[submodule "ext/boost/algorithm"]
+	path = ext/boost/algorithm
+	url = https://github.com/boostorg/algorithm
+[submodule "ext/boost/config"]
+	path = ext/boost/config
+	url = https://github.com/boostorg/config
+[submodule "ext/boost/function"]
+	path = ext/boost/function
+	url = https://github.com/boostorg/function
+[submodule "ext/boost/iterator"]
+	path = ext/boost/iterator
+	url = https://github.com/boostorg/iterator
+[submodule "ext/boost/mpl"]
+	path = ext/boost/mpl
+	url = https://github.com/boostorg/mpl
+[submodule "ext/boost/range"]
+	path = ext/boost/range
+	url = https://github.com/boostorg/range
+[submodule "ext/boost/preprocessor"]
+	path = ext/boost/preprocessor
+	url = https://github.com/boostorg/preprocessor
+[submodule "ext/boost/type_traits"]
+	path = ext/boost/type_traits
+	url = https://github.com/boostorg/type_traits
+[submodule "ext/boost/concept_check"]
+	path = ext/boost/concept_check
+	url = https://github.com/boostorg/concept_check
+[submodule "ext/boost/utility"]
+	path = ext/boost/utility
+	url = https://github.com/boostorg/utility
+[submodule "ext/boost/assert"]
+	path = ext/boost/assert
+	url = https://github.com/boostorg/assert
+[submodule "ext/boost/core"]
+	path = ext/boost/core
+	url = https://github.com/boostorg/core
+[submodule "ext/boost/static_assert"]
+	path = ext/boost/static_assert
+	url = https://github.com/boostorg/static_assert
+[submodule "ext/boost/type_index"]
+	path = ext/boost/type_index
+	url = https://github.com/boostorg/type_index
+[submodule "ext/boost/detail"]
+	path = ext/boost/detail
+	url = https://github.com/boostorg/detail
+[submodule "ext/boost/bind"]
+	path = ext/boost/bind
+	url = https://github.com/boostorg/bind
+[submodule "ext/boost/throw_exception"]
+	path = ext/boost/throw_exception
+	url = https://github.com/boostorg/throw_exception
+[submodule "ext/boost/integer"]
+	path = ext/boost/integer
+	url = https://github.com/boostorg/integer
+[submodule "ext/boost/container_hash"]
+	path = ext/boost/container_hash
+	url = https://github.com/boostorg/container_hash
