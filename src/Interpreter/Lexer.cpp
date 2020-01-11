@@ -39,8 +39,6 @@ std::queue<std::string> Lexer::FindPhrases(std::string line)
 
 bool Lexer::IsSpecialCharacter(char character)
 {
-	return character == ' ' || character == '	' || character == '{' ||
-		character == '(' || character == '"' || character == ';' ||
-		character == ')' || character == '}' || character == ',' ||
-		character == '.' || character == '=';
+	std::vector<char> charactersArray = { ' ', '\t', '{', '}', '(', ')', '"', ';', ',', '.', '=' };
+	return std::any_of(charactersArray.begin(), charactersArray.end(), [character](char c) { return character == c; });
 }
