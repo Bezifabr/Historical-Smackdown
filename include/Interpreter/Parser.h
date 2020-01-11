@@ -61,13 +61,13 @@ public:
 	bool IsErrorOccurring();
 	void ReturnResult();
 private:
-	void LookForObject(std::string phrase);
+	void FindObject(std::string phrase);
 
-	void LookForType(std::string phrase);
+	void FindType(std::string phrase);
 	void LookForName(std::string phrase);
 	void LookForDefinition(std::string phrase);
 
-	void LookForInstruction(std::string phrase);
+	void FindInstruction(std::string phrase);
 
 	bool IsSpecialCharacter(char character);
 

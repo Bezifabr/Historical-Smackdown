@@ -36,7 +36,7 @@ Parser::Parser()
 
 void Parser::CheckSyntax(std::string phrase)
 {
-		LookForObject(phrase);
+		FindObject(phrase);
 		if (phrase == "}")
 			if(!ownershipStack.empty())
 				ownershipStack.pop();
@@ -46,7 +46,7 @@ void Parser::CheckSyntax(std::string phrase)
 				errorMessage = "[PARSER] Illegal usage of '}'";
 			}
 		else if (isInstructionFound == false)
-			LookForInstruction(phrase);
+			FindInstruction(phrase);
 		else if (phrase != ")" && phrase != "(" && phrase != ",")
 			tempInstruction.arguments.push_back(phrase);
 		else if (phrase == ")")
@@ -79,10 +79,10 @@ void Parser::ReturnResult()
 		std::cout << "[PARSER] Loading complete!" << std::endl;
 }
 
-void Parser::LookForObject(std::string phrase)
+void Parser::FindObject(std::string phrase)
 {
 	if (isTypeFound == false)
-		LookForType(phrase);
+		FindType(phrase);
 	else if (isNameFound == false)
 		LookForName(phrase);
 	else if (isDefinitionFound == false)
@@ -99,7 +99,7 @@ void Parser::LookForObject(std::string phrase)
 	}
 }
 
-void Parser::LookForInstruction(std::string phrase)
+void Parser::FindInstruction(std::string phrase)
 {
 	if(!instructionsAtlas.empty())
 	for (auto instruction : instructionsAtlas)
@@ -110,7 +110,7 @@ void Parser::LookForInstruction(std::string phrase)
 		}
 }
 
-void Parser::LookForType(std::string phrase)
+void Parser::FindType(std::string phrase)
 {
 	isTypeFound = true;
 	if (boost::iequals(phrase, "Character"))
