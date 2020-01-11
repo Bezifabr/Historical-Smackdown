@@ -7,23 +7,7 @@
 #include <stack>
 #include <queue>
 
-#include "ScriptInstruction.h"
-
-struct ScriptObject {
-	std::string type;
-	std::string id;
-	std::string ownedBy;
-	std::queue<ScriptInstruction> instructions;
-
-	void Clear()
-	{
-		type = "[EMPTY]";
-		id = "[EMPTY]";
-		ownedBy = "[EMPTY]";
-		while (!instructions.empty())
-			instructions.pop();
-	}
-};
+#include "ScriptObject.h"
 
 class Parser {
 	std::vector<std::string> instructionsAtlas;

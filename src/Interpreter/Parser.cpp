@@ -6,10 +6,7 @@
 
 Parser::Parser()
 {
-	ScriptObject emptyObject;
-	emptyObject.id = "[EMPTY]";
-	emptyObject.ownedBy = "[EMPTY]";
-	emptyObject.type = "[EMPTY]";
+	ScriptObject emptyObject("[EMPTY]", "[EMPTY]", "[EMPTY]");
 	objects.push_back(emptyObject);
 
 	ownershipStack.push("[MAIN]");
@@ -58,7 +55,7 @@ void Parser::CheckSyntax(std::string phrase)
 			std::cout << std::endl;
 
 			isInstructionFound = false;
-			GetObjectById(ownershipStack.top()).instructions.push(tempInstruction);
+			GetObjectById(ownershipStack.top()).AddInstruction(tempInstruction);
 			tempInstruction.Clear();
 		}
 }
@@ -94,7 +91,7 @@ void Parser::FindObject(std::string phrase)
 		isNameFound = false;
 		isDefinitionFound = false;
 
-		std::cout << objects[objects.size() - 1].type << " " << objects[objects.size() - 1].id << std::endl;
+		std::cout << objects[objects.size() - 1].GetType() << " " << objects[objects.size() - 1].GetId() << std::endl;
 
 	}
 }
@@ -158,10 +155,7 @@ bool Parser::IsSpecialCharacter(char character)
 
 void Parser::AddNewObject()
 {
-	ScriptObject tempObject;
-	tempObject.type = type;
-	tempObject.id = name;
-	tempObject.ownedBy = ownershipStack.top();
+	ScriptObject tempObject(type, name, ownershipStack.top());
 	ownershipStack.push(name);
 	objects.push_back(tempObject);
 }
@@ -170,7 +164,7 @@ ScriptObject & Parser::GetObjectById(const std::string & id)
 {
 	if(!objects.empty())
 	for (auto itr = objects.begin(); itr != objects.end(); itr++)
-		if (itr->id == id)
+		if (itr->GetId() == id)
 			return (*itr);
 	return objects[0];
 }
