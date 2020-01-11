@@ -48,13 +48,13 @@ void Parser::CheckSyntax(std::string phrase)
 		else if (isInstructionFound == false)
 			FindInstruction(phrase);
 		else if (phrase != ")" && phrase != "(" && phrase != ",")
-			tempInstruction.arguments.push_back(phrase);
+			tempInstruction.AddArgument(phrase);
 		else if (phrase == ")")
 		{
 
-			std::cout << tempInstruction.name;
-			for (auto arg : tempInstruction.arguments)
-				std::cout << " " << arg;
+			std::cout << tempInstruction.GetName();
+			for (auto itr = tempInstruction.GetArgumentsBegin(); itr != tempInstruction.GetArgumentsEnd(); itr++)
+				std::cout << " " << *itr;
 			std::cout << std::endl;
 
 			isInstructionFound = false;
@@ -105,7 +105,7 @@ void Parser::FindInstruction(std::string phrase)
 	for (auto instruction : instructionsAtlas)
 		if (phrase == instruction)
 		{
-			tempInstruction.name = instruction;
+			tempInstruction.SetName(instruction);
 			isInstructionFound = true;
 		}
 }

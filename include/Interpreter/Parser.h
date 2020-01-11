@@ -7,16 +7,7 @@
 #include <stack>
 #include <queue>
 
-struct ScriptInstruction {
-	std::string name;
-	std::vector<std::string> arguments;
-
-	void Clear()
-	{
-		name = "[EMPTY]";
-		arguments.clear();
-	}
-};
+#include "ScriptInstruction.h"
 
 struct ScriptObject {
 	std::string type;
