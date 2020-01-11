@@ -1,6 +1,8 @@
 #include "Interpreter/Parser.h"
 #include <iostream>
 #include <boost/algorithm/string.hpp>
+#include <algorithm>
+#include <vector>
 
 Parser::Parser()
 {
@@ -150,10 +152,8 @@ void Parser::LookForDefinition(std::string phrase)
 
 bool Parser::IsSpecialCharacter(char character)
 {
-	return character == ' ' || character == '	' || character == '{' ||
-		character == '(' || character == '"' || character == ';' ||
-		character == ')' || character == '}' || character == ',' ||
-		character == '.' || character == '=';
+	std::vector<char> charactersArray = { ' ', '\t', '{', '}', '(', ')', '"', ';', ',', '.', '=' };
+	return std::any_of(charactersArray.begin(), charactersArray.end(), [character](char c){ return character == c; });
 }
 
 void Parser::AddNewObject()
