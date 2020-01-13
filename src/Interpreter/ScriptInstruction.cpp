@@ -26,12 +26,12 @@ void ScriptInstruction::AddArgument(std::string argument)
 
 std::vector<std::string>::const_iterator ScriptInstruction::GetArgumentsBegin()
 {
-	return arguments.cend();
+	return arguments.cbegin();
 }
 
 std::vector<std::string>::const_iterator ScriptInstruction::GetArgumentsEnd()
 {
-	return arguments.cbegin();
+	return arguments.cend();
 }
 
 void ScriptInstruction::Clear()
